@@ -19,7 +19,7 @@ export default function Footer() {
         </div>
       </div>
 
-      <div className="mx-auto max-w-6xl px-6 py-14 grid gap-12 md:grid-cols-4">
+      <div className="mx-auto max-w-6xl px-6 py-14 grid gap-12 md:grid-cols-3">
         <FooterCol title="EVENT">
           <FooterLink href="/key-dates">Key Dates</FooterLink>
           <FooterLink href="/speakers">Speakers</FooterLink>
@@ -58,28 +58,35 @@ export default function Footer() {
           */}
         </FooterCol>
 
-        <FooterCol title="FOLLOW">
-          <li>
-            <a
-              href="https://x.com/NetSciConf"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-gray-700 hover:text-ink transition-colors"
-            >
-              X (Twitter)
-            </a>
-          </li>
-          <li>
-            <a
-              href="https://bsky.app/profile/netsciconf.bsky.social"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-gray-700 hover:text-ink transition-colors"
-            >
-              Bluesky
-            </a>
-          </li>
-        </FooterCol>
+        {/*
+          FOLLOW column temporarily removed — no dedicated social
+          accounts for NetSciX 2027 yet. Restore the block below (and
+          consider switching the wrapper grid to md:grid-cols-3 while
+          this column is hidden) once accounts are set up.
+
+          <FooterCol title="FOLLOW">
+            <li>
+              <a
+                href="https://x.com/NetSciConf"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-gray-700 hover:text-ink transition-colors"
+              >
+                X (Twitter)
+              </a>
+            </li>
+            <li>
+              <a
+                href="https://bsky.app/profile/netsciconf.bsky.social"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-gray-700 hover:text-ink transition-colors"
+              >
+                Bluesky
+              </a>
+            </li>
+          </FooterCol>
+        */}
       </div>
 
       <div className="border-t border-gray-200">
