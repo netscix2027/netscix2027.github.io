@@ -74,7 +74,6 @@ export default function AboutPage() {
     <>
       <PageHero
         title="Organizing Committee"
-        subtitle="The people behind NetSciX 2027."
         bgImage="/images/general-info-bg.jpg"
       />
 
