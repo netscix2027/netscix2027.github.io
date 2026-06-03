@@ -1,6 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
-import TallyEmbed from "@/components/TallyEmbed";
+// import TallyEmbed from "@/components/TallyEmbed";
+// ^ Restore the import together with the contact-form column in ContactSection below.
 
 export default function HomePage() {
   return (
@@ -198,24 +199,27 @@ function ContactSection() {
           </p>
         </div>
 
-        <div className="grid gap-10 md:grid-cols-2 items-start">
-          {/* Left — address & contact info */}
-          <div className="space-y-6 md:pt-8">
-            <InfoBlock
-              title="NetSciX 2027 Secretariat"
-              lines={[
-                "Sheraton Hong Kong Hotel & Towers",
-                "20 Nathan Road, Tsim Sha Tsui",
-                "Kowloon, Hong Kong",
-              ]}
-            />
-            <InfoBlock
-              title="Office Hours"
-              lines={["Monday to Friday", "09:00 – 16:00 (Beijing time)"]}
-            />
-          </div>
+        <div className="max-w-md mx-auto space-y-6">
+          <InfoBlock
+            title="NetSciX 2027 Secretariat"
+            lines={[
+              "Sheraton Hong Kong Hotel & Towers",
+              "20 Nathan Road, Tsim Sha Tsui",
+              "Kowloon, Hong Kong",
+            ]}
+          />
+          <InfoBlock
+            title="Office Hours"
+            lines={["Monday to Friday", "09:00 – 16:00 (Beijing time)"]}
+          />
+        </div>
 
-          {/* Right — Send us a message */}
+        {/*
+          Right-side contact form temporarily removed. To bring it back,
+          wrap the InfoBlocks above and the block below in a
+          <div className="grid gap-10 md:grid-cols-2 items-start"> wrapper
+          again, and re-enable the TallyEmbed import at the top of the file.
+
           <div className="bg-white rounded-lg border border-gray-200 p-6 md:p-8 shadow-sm">
             <h3 className="font-serif text-xl font-bold text-ink mb-4">Send us a message</h3>
             <TallyEmbed
@@ -224,7 +228,7 @@ function ContactSection() {
               minHeight={520}
             />
           </div>
-        </div>
+        */}
 
         {/* Full-width map below */}
         <div className="mt-12 h-[360px] md:h-[420px] w-full rounded-lg overflow-hidden border border-gray-200 shadow-sm">

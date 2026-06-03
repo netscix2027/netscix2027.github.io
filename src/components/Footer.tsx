@@ -22,10 +22,17 @@ export default function Footer() {
       <div className="mx-auto max-w-6xl px-6 py-14 grid gap-12 md:grid-cols-4">
         <FooterCol title="EVENT">
           <FooterLink href="/key-dates">Key Dates</FooterLink>
-          <FooterLink href="/program">Program</FooterLink>
           <FooterLink href="/speakers">Speakers</FooterLink>
-          <FooterLink href="/abstracts">Submission</FooterLink>
-          <FooterLink href="/registration">Registration</FooterLink>
+          <FooterLink href="/more-info">More Info</FooterLink>
+          {/*
+            Program / Submission / Registration footer links removed while
+            their pages are stubbed. Restore alongside the Header NAV entries
+            and the page files' commented blocks.
+
+            <FooterLink href="/program">Program</FooterLink>
+            <FooterLink href="/abstracts">Submission</FooterLink>
+            <FooterLink href="/registration">Registration</FooterLink>
+          */}
         </FooterCol>
 
         <FooterCol title="ABOUT">

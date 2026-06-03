@@ -24,30 +24,38 @@ const NAV: Item[] = [
     ],
   },
   {
-    label: "Program",
-    href: "/program",
+    label: "More Info",
+    href: "/more-info",
   },
-  {
-    label: "Submission",
-    href: "/abstracts",
-    children: [
-      { label: "Deadlines", href: "/abstracts#deadlines" },
-      { label: "Guidelines", href: "/abstracts#guidelines" },
-      { label: "Submit", href: "/abstracts#submit" },
-      { label: "FAQ", href: "/abstracts#faq" },
-    ],
-  },
-  {
-    label: "Registration",
-    href: "/registration",
-    children: [
-      { label: "Deadlines", href: "/registration#deadlines" },
-      { label: "Fees", href: "/registration#fees" },
-      { label: "Bank details", href: "/registration#bank" },
-      { label: "Register", href: "/registration#register" },
-      { label: "FAQ", href: "/registration#faq" },
-    ],
-  },
+  // Program / Submission / Registration consolidated into /more-info until
+  // their content is finalized. To bring them back, replace this single
+  // entry with the three original blocks preserved below.
+  //
+  // {
+  //   label: "Program",
+  //   href: "/program",
+  // },
+  // {
+  //   label: "Submission",
+  //   href: "/abstracts",
+  //   children: [
+  //     { label: "Deadlines", href: "/abstracts#deadlines" },
+  //     { label: "Guidelines", href: "/abstracts#guidelines" },
+  //     { label: "Submit", href: "/abstracts#submit" },
+  //     { label: "FAQ", href: "/abstracts#faq" },
+  //   ],
+  // },
+  // {
+  //   label: "Registration",
+  //   href: "/registration",
+  //   children: [
+  //     { label: "Deadlines", href: "/registration#deadlines" },
+  //     { label: "Fees", href: "/registration#fees" },
+  //     { label: "Bank details", href: "/registration#bank" },
+  //     { label: "Register", href: "/registration#register" },
+  //     { label: "FAQ", href: "/registration#faq" },
+  //   ],
+  // },
   {
     label: "About",
     href: "/about",
