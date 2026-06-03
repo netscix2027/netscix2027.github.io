@@ -24,8 +24,11 @@ export default function KeyDatesPage() {
       {/* Milestones timeline */}
       <section className="bg-white">
         <div className="mx-auto max-w-4xl px-6 py-16">
-          <h2 className="font-serif text-3xl font-bold text-ink mb-8">
-            Important Dates <span className="text-base font-normal text-muted">(tentative)</span>
+          <h2 className="font-serif text-3xl font-bold text-ink mb-8 flex flex-wrap items-center gap-3">
+            Important Dates
+            <span className="inline-block rounded-md bg-amber-100 px-3 py-1 text-base font-bold uppercase tracking-wide text-amber-800 ring-1 ring-amber-300">
+              Tentative
+            </span>
           </h2>
           <ol className="relative border-l-2 border-gray-200 pl-6 space-y-8">
             {MILESTONES.map((m) => (
@@ -36,8 +39,9 @@ export default function KeyDatesPage() {
               </li>
             ))}
           </ol>
-          <p className="mt-10 text-sm text-muted">
-            Dates are tentative and may be updated. All deadlines are 23:59 Anywhere on Earth (AoE).
+          <p className="mt-10 rounded-md border border-amber-300 bg-amber-50 px-4 py-3 text-sm text-amber-900">
+            <span className="font-bold">All dates above are tentative</span> and may be updated.
+            All deadlines are 23:59 Anywhere on Earth (AoE).
           </p>
         </div>
       </section>

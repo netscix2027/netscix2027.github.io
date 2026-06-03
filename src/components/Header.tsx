@@ -57,15 +57,22 @@ const NAV: Item[] = [
   //   ],
   // },
   {
-    label: "About",
+    label: "Organizing Committee",
     href: "/about",
-    children: [
-      { label: "Venue", href: "/about#venue" },
-      { label: "Accommodation", href: "/about#accommodation" },
-      { label: "Organizing Committee", href: "/about#committee" },
-      { label: "Sponsors", href: "/about#sponsors" },
-    ],
   },
+  // About page collapsed to only the Organizing Committee section. Restore
+  // the dropdown when Venue / Accommodation / Sponsors content is finalized.
+  //
+  // {
+  //   label: "About",
+  //   href: "/about",
+  //   children: [
+  //     { label: "Venue", href: "/about#venue" },
+  //     { label: "Accommodation", href: "/about#accommodation" },
+  //     { label: "Organizing Committee", href: "/about#committee" },
+  //     { label: "Sponsors", href: "/about#sponsors" },
+  //   ],
+  // },
 ];
 
 export default function Header() {

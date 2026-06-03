@@ -36,10 +36,16 @@ export default function Footer() {
         </FooterCol>
 
         <FooterCol title="ABOUT">
-          <FooterLink href="/about#venue">Venue</FooterLink>
-          <FooterLink href="/about#accommodation">Accommodation</FooterLink>
-          <FooterLink href="/about#committee">Organizing Committee</FooterLink>
-          <FooterLink href="/about#sponsors">Sponsors</FooterLink>
+          <FooterLink href="/about">Organizing Committee</FooterLink>
+          {/*
+            About sub-sections removed while only the Organizing Committee
+            is finalized. Restore alongside the page sections:
+
+            <FooterLink href="/about#venue">Venue</FooterLink>
+            <FooterLink href="/about#accommodation">Accommodation</FooterLink>
+            <FooterLink href="/about#committee">Organizing Committee</FooterLink>
+            <FooterLink href="/about#sponsors">Sponsors</FooterLink>
+          */}
         </FooterCol>
 
         <FooterCol title="QUICK LINKS">

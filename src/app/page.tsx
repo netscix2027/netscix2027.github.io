@@ -116,145 +116,112 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* Registration Quick Links */}
-      <section id="quick-links" className="bg-white">
-        <div className="mx-auto max-w-6xl px-6 py-20">
-          <div className="text-center mb-12">
-            <p className="text-xs uppercase tracking-[0.3em] text-brand">Get Involved</p>
-            <h2 className="mt-3 font-serif text-3xl md:text-4xl font-bold text-ink">
-              Quick Links
-            </h2>
-            <p className="mt-3 text-gray-600 max-w-2xl mx-auto">
-              Submit your work, secure your seat, and start planning your trip to Hong Kong.
-            </p>
-          </div>
-
-          <div className="grid gap-5 md:grid-cols-2 lg:grid-cols-4">
-            <QuickLink
-              title="Register"
-              desc="Fees, deadlines, and how to secure your pass."
-              cta="View registration →"
-              href="/registration"
-            />
-            <QuickLink
-              title="Submit Abstract"
-              desc="Share your latest research with the community."
-              cta="View call for abstracts →"
-              href="/abstracts"
-            />
-            <QuickLink
-              title="Program"
-              desc="Browse the schedule, talks, and sessions."
-              cta="View program →"
-              href="/program"
-            />
-            <QuickLink
-              title="Travel & Venue"
-              desc="Sheraton Tsim Sha Tsui — getting here, and where to stay."
-              cta="Plan your trip →"
-              href="/about"
-            />
-          </div>
-        </div>
-      </section>
-
-      {/* Contact */}
-      <ContactSection />
+      {/*
+        Quick Links section and Contact section temporarily removed.
+        The original JSX for both — and the QuickLink / ContactSection /
+        InfoBlock helper functions — are preserved as line comments at
+        the bottom of this file. To restore: un-comment the helpers and
+        paste the corresponding JSX back into this return block.
+      */}
     </>
   );
 }
+// =====================================================================
+// ORIGINAL HELPER FUNCTIONS — preserved as comments; restore alongside
+// the JSX in HomePage that was removed.
+// =====================================================================
 
-function QuickLink({
-  title,
-  desc,
-  cta,
-  href,
-}: {
-  title: string;
-  desc: string;
-  cta: string;
-  href: string;
-}) {
-  return (
-    <Link
-      href={href}
-      className="group p-6 rounded-lg border border-gray-200 bg-white hover:border-ink hover:shadow-md transition flex flex-col"
-    >
-      <h3 className="font-serif text-xl font-bold text-ink">{title}</h3>
-      <p className="mt-2 text-sm text-gray-600 flex-1">{desc}</p>
-      <span className="mt-4 text-sm text-brand font-medium group-hover:underline">{cta}</span>
-    </Link>
-  );
-}
-
-function ContactSection() {
-  return (
-    <section id="contact" className="bg-gray-50 border-t border-gray-200">
-      <div className="mx-auto max-w-6xl px-6 py-20">
-        <div className="text-center mb-12">
-          <p className="text-xs uppercase tracking-[0.3em] text-brand">Get in Touch</p>
-          <h2 className="mt-3 font-serif text-3xl md:text-4xl font-bold text-ink">Contact</h2>
-          <p className="mt-3 text-gray-600 max-w-2xl mx-auto">
-            Reach out to the NetSciX 2027 Secretariat — we are happy to help.
-          </p>
-        </div>
-
-        <div className="max-w-md mx-auto space-y-6">
-          <InfoBlock
-            title="NetSciX 2027 Secretariat"
-            lines={[
-              "Sheraton Hong Kong Hotel & Towers",
-              "20 Nathan Road, Tsim Sha Tsui",
-              "Kowloon, Hong Kong",
-            ]}
-          />
-          <InfoBlock
-            title="Office Hours"
-            lines={["Monday to Friday", "09:00 – 16:00 (Beijing time)"]}
-          />
-        </div>
-
-        {/*
-          Right-side contact form temporarily removed. To bring it back,
-          wrap the InfoBlocks above and the block below in a
-          <div className="grid gap-10 md:grid-cols-2 items-start"> wrapper
-          again, and re-enable the TallyEmbed import at the top of the file.
-
-          <div className="bg-white rounded-lg border border-gray-200 p-6 md:p-8 shadow-sm">
-            <h3 className="font-serif text-xl font-bold text-ink mb-4">Send us a message</h3>
-            <TallyEmbed
-              src="TODO_TALLY_CONTACT_URL"
-              title="Contact"
-              minHeight={520}
-            />
-          </div>
-        */}
-
-        {/* Full-width map below */}
-        <div className="mt-12 h-[360px] md:h-[420px] w-full rounded-lg overflow-hidden border border-gray-200 shadow-sm">
-          <iframe
-            title="Sheraton Hong Kong Hotel & Towers map"
-            src="https://maps.google.com/maps?q=Sheraton+Hong+Kong+Hotel+%26+Towers,+20+Nathan+Road,+Tsim+Sha+Tsui&t=&z=16&ie=UTF8&iwloc=&output=embed"
-            className="w-full h-full"
-            loading="lazy"
-            referrerPolicy="no-referrer-when-downgrade"
-          />
-        </div>
-      </div>
-    </section>
-  );
-}
-
-function InfoBlock({ title, lines }: { title: string; lines: string[] }) {
-  return (
-    <div>
-      <h3 className="text-sm font-semibold tracking-wide text-ink uppercase">{title}</h3>
-      <div className="mt-2 space-y-1 text-gray-600">
-        {lines.map((l) => (
-          <div key={l}>{l}</div>
-        ))}
-      </div>
-    </div>
-  );
-}
+// function QuickLink({
+//   title,
+//   desc,
+//   cta,
+//   href,
+// }: {
+//   title: string;
+//   desc: string;
+//   cta: string;
+//   href: string;
+// }) {
+//   return (
+//     <Link
+//       href={href}
+//       className="group p-6 rounded-lg border border-gray-200 bg-white hover:border-ink hover:shadow-md transition flex flex-col"
+//     >
+//       <h3 className="font-serif text-xl font-bold text-ink">{title}</h3>
+//       <p className="mt-2 text-sm text-gray-600 flex-1">{desc}</p>
+//       <span className="mt-4 text-sm text-brand font-medium group-hover:underline">{cta}</span>
+//     </Link>
+//   );
+// }
+// 
+// function ContactSection() {
+//   return (
+//     <section id="contact" className="bg-gray-50 border-t border-gray-200">
+//       <div className="mx-auto max-w-6xl px-6 py-20">
+//         <div className="text-center mb-12">
+//           <p className="text-xs uppercase tracking-[0.3em] text-brand">Get in Touch</p>
+//           <h2 className="mt-3 font-serif text-3xl md:text-4xl font-bold text-ink">Contact</h2>
+//           <p className="mt-3 text-gray-600 max-w-2xl mx-auto">
+//             Reach out to the NetSciX 2027 Secretariat — we are happy to help.
+//           </p>
+//         </div>
+// 
+//         <div className="max-w-md mx-auto space-y-6">
+//           <InfoBlock
+//             title="NetSciX 2027 Secretariat"
+//             lines={[
+//               "Sheraton Hong Kong Hotel & Towers",
+//               "20 Nathan Road, Tsim Sha Tsui",
+//               "Kowloon, Hong Kong",
+//             ]}
+//           />
+//           <InfoBlock
+//             title="Office Hours"
+//             lines={["Monday to Friday", "09:00 – 16:00 (Beijing time)"]}
+//           />
+//         </div>
+// 
+//         {/*
+//           Right-side contact form temporarily removed. To bring it back,
+//           wrap the InfoBlocks above and the block below in a
+//           <div className="grid gap-10 md:grid-cols-2 items-start"> wrapper
+//           again, and re-enable the TallyEmbed import at the top of the file.
+// 
+//           <div className="bg-white rounded-lg border border-gray-200 p-6 md:p-8 shadow-sm">
+//             <h3 className="font-serif text-xl font-bold text-ink mb-4">Send us a message</h3>
+//             <TallyEmbed
+//               src="TODO_TALLY_CONTACT_URL"
+//               title="Contact"
+//               minHeight={520}
+//             />
+//           </div>
+//         */}
+// 
+//         {/* Full-width map below */}
+//         <div className="mt-12 h-[360px] md:h-[420px] w-full rounded-lg overflow-hidden border border-gray-200 shadow-sm">
+//           <iframe
+//             title="Sheraton Hong Kong Hotel & Towers map"
+//             src="https://maps.google.com/maps?q=Sheraton+Hong+Kong+Hotel+%26+Towers,+20+Nathan+Road,+Tsim+Sha+Tsui&t=&z=16&ie=UTF8&iwloc=&output=embed"
+//             className="w-full h-full"
+//             loading="lazy"
+//             referrerPolicy="no-referrer-when-downgrade"
+//           />
+//         </div>
+//       </div>
+//     </section>
+//   );
+// }
+// 
+// function InfoBlock({ title, lines }: { title: string; lines: string[] }) {
+//   return (
+//     <div>
+//       <h3 className="text-sm font-semibold tracking-wide text-ink uppercase">{title}</h3>
+//       <div className="mt-2 space-y-1 text-gray-600">
+//         {lines.map((l) => (
+//           <div key={l}>{l}</div>
+//         ))}
+//       </div>
+//     </div>
+//   );
+// }
 
