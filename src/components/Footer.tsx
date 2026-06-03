@@ -19,7 +19,7 @@ export default function Footer() {
         </div>
       </div>
 
-      <div className="mx-auto max-w-6xl px-6 py-14 grid gap-12 md:grid-cols-3">
+      <div className="mx-auto max-w-6xl px-6 py-14 flex flex-col gap-12 md:flex-row md:justify-around md:items-start">
         <FooterCol title="EVENT">
           <FooterLink href="/key-dates">Key Dates</FooterLink>
           <FooterLink href="/speakers">Speakers</FooterLink>
