@@ -1,9 +1,6 @@
-"use client";
-
 import Image from "next/image";
 import Link from "next/link";
-import { useState } from "react";
-import Turnstile, { isTurnstileEnabled } from "@/components/Turnstile";
+import TallyEmbed from "@/components/TallyEmbed";
 
 export default function HomePage() {
   return (
@@ -190,10 +187,6 @@ function QuickLink({
 }
 
 function ContactSection() {
-  const [submitted, setSubmitted] = useState(false);
-  const [submitting, setSubmitting] = useState(false);
-  const [error, setError] = useState<string>("");
-  const [token, setToken] = useState("");
   return (
     <section id="contact" className="bg-gray-50 border-t border-gray-200">
       <div className="mx-auto max-w-6xl px-6 py-20">
@@ -224,71 +217,12 @@ function ContactSection() {
 
           {/* Right — Send us a message */}
           <div className="bg-white rounded-lg border border-gray-200 p-6 md:p-8 shadow-sm">
-            {submitted ? (
-              <div className="py-12 text-center">
-                <h3 className="font-serif text-xl text-ink">Thank you!</h3>
-                <p className="mt-2 text-gray-600">We have received your message.</p>
-              </div>
-            ) : (
-              <form
-                className="space-y-4"
-                onSubmit={async (e) => {
-                  e.preventDefault();
-                  setError("");
-                  setSubmitting(true);
-                  const fd = new FormData(e.currentTarget);
-                  const payload = Object.fromEntries(fd.entries());
-                  payload.turnstileToken = token;
-                  try {
-                    const res = await fetch("/api/contact", {
-                      method: "POST",
-                      headers: { "content-type": "application/json" },
-                      body: JSON.stringify(payload),
-                    });
-                    const json = await res.json();
-                    if (!res.ok) {
-                      setError(json?.error || "Submission failed.");
-                    } else {
-                      setSubmitted(true);
-                    }
-                  } catch {
-                    setError("Network error.");
-                  } finally {
-                    setSubmitting(false);
-                  }
-                }}
-              >
-                <h3 className="font-serif text-xl font-bold text-ink mb-2">Send us a message</h3>
-                <div className="grid gap-4 md:grid-cols-2">
-                  <Field label="First Name" name="firstName" />
-                  <Field label="Last Name" name="lastName" />
-                </div>
-                <Field label="Email" name="email" type="email" required />
-                <Field label="Phone" name="phone" type="tel" />
-                <div>
-                  <label className="block text-sm font-medium text-ink mb-1.5">Message</label>
-                  <textarea
-                    name="message"
-                    required
-                    rows={5}
-                    className="w-full rounded-md border border-gray-300 px-3.5 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-ink/20 focus:border-ink"
-                  />
-                </div>
-                {error && (
-                  <div className="rounded-md border border-red-200 bg-red-50 px-3 py-2 text-sm text-red-700">
-                    {error}
-                  </div>
-                )}
-                <Turnstile onToken={setToken} />
-                <button
-                  type="submit"
-                  disabled={submitting || (isTurnstileEnabled() && !token)}
-                  className="bg-ink text-white px-8 py-3 rounded-md font-medium hover:bg-black transition disabled:opacity-60"
-                >
-                  {submitting ? "Sending…" : "Submit"}
-                </button>
-              </form>
-            )}
+            <h3 className="font-serif text-xl font-bold text-ink mb-4">Send us a message</h3>
+            <TallyEmbed
+              src="TODO_TALLY_CONTACT_URL"
+              title="Contact"
+              minHeight={520}
+            />
           </div>
         </div>
 
@@ -320,29 +254,3 @@ function InfoBlock({ title, lines }: { title: string; lines: string[] }) {
   );
 }
 
-function Field({
-  label,
-  name,
-  type = "text",
-  required,
-}: {
-  label: string;
-  name: string;
-  type?: string;
-  required?: boolean;
-}) {
-  return (
-    <div>
-      <label className="block text-sm font-medium text-ink mb-1.5">
-        {label}
-        {required && <span className="text-red-500"> *</span>}
-      </label>
-      <input
-        name={name}
-        type={type}
-        required={required}
-        className="w-full rounded-md border border-gray-300 px-3.5 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-ink/20 focus:border-ink"
-      />
-    </div>
-  );
-}
