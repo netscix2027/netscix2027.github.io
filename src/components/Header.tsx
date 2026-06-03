@@ -24,12 +24,16 @@ const NAV: Item[] = [
     ],
   },
   {
+    label: "Organizing Committee",
+    href: "/about",
+  },
+  {
     label: "More Info",
     href: "/more-info",
   },
   // Program / Submission / Registration consolidated into /more-info until
-  // their content is finalized. To bring them back, replace this single
-  // entry with the three original blocks preserved below.
+  // their content is finalized. To bring them back, replace the single
+  // More Info entry above with the three original blocks preserved below.
   //
   // {
   //   label: "Program",
@@ -56,10 +60,6 @@ const NAV: Item[] = [
   //     { label: "FAQ", href: "/registration#faq" },
   //   ],
   // },
-  {
-    label: "Organizing Committee",
-    href: "/about",
-  },
   // About page collapsed to only the Organizing Committee section. Restore
   // the dropdown when Venue / Accommodation / Sponsors content is finalized.
   //
