@@ -44,6 +44,34 @@ const KEYNOTES: Speaker[] = [
   },
 ];
 
+const INVITED: Speaker[] = [
+  {
+    name: "Carlo Vittorio Cannistraci",
+    affiliation: "Tsinghua University, China",
+    website: "https://brain.tsinghua.edu.cn/en/info/1010/1003.htm",
+  },
+  {
+    name: "Michael Small",
+    affiliation: "University of Western Australia, Australia",
+    website: "https://research-repository.uwa.edu.au/en/persons/michael-small/",
+  },
+  {
+    name: "Xavier Bresson",
+    affiliation: "National University of Singapore",
+    website: "https://graphdeeplearning.github.io/authors/xavier-bresson/",
+  },
+  {
+    name: "Marian Boguñá",
+    affiliation: "Universitat de Barcelona",
+    website: "http://complex.fmc.ub.edu/~mbogunya/",
+  },
+  {
+    name: "Alice Patania",
+    affiliation: "University of Vermont, USA",
+    website: "https://alpatania.github.io/",
+  },
+];
+
 export default function SpeakersPage() {
   return (
     <>
@@ -70,30 +98,8 @@ export default function SpeakersPage() {
             </h2>
           </div>
           <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
-            {KEYNOTES.map((s, i) => (
-              <article
-                key={i}
-                className="bg-white rounded-xl border border-gray-200 shadow-sm p-6 flex flex-col items-center text-center transition hover:shadow-md"
-              >
-                <SpeakerAvatar
-                  src={s.photo}
-                  name={s.name}
-                  className="w-28 h-28 rounded-full"
-                  textClassName="text-2xl"
-                />
-                <h3 className="mt-4 font-serif text-base font-bold text-ink">{s.name}</h3>
-                <p className="mt-1 text-sm text-muted leading-snug">{s.affiliation}</p>
-                {s.website && (
-                  <a
-                    href={s.website}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="mt-3 text-sm font-medium text-brand hover:underline"
-                  >
-                    Website →
-                  </a>
-                )}
-              </article>
+            {KEYNOTES.map((s) => (
+              <SpeakerCard key={s.name} speaker={s} />
             ))}
           </div>
         </div>
@@ -101,21 +107,45 @@ export default function SpeakersPage() {
 
       {/* Invited speakers */}
       <section id="invited" className="bg-gray-50 border-y border-gray-200">
-        <div className="mx-auto max-w-6xl px-6 py-16">
+        <div className="mx-auto max-w-5xl px-6 py-16">
           <div className="mb-10">
             <p className="text-xs uppercase tracking-[0.3em] text-brand">Featured</p>
             <h2 className="mt-2 font-serif text-3xl md:text-4xl font-bold text-ink">
               Invited Speakers
             </h2>
           </div>
-          <div className="rounded-lg border border-dashed border-gray-300 bg-white px-6 py-12 text-center">
-            <p className="font-serif text-2xl text-ink">TBA</p>
-            <p className="mt-2 text-sm text-muted">
-              Invited speakers will be announced in due course.
-            </p>
+          <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
+            {INVITED.map((s) => (
+              <SpeakerCard key={s.name} speaker={s} />
+            ))}
           </div>
         </div>
       </section>
     </>
+  );
+}
+
+function SpeakerCard({ speaker }: { speaker: Speaker }) {
+  return (
+    <article className="bg-white rounded-xl border border-gray-200 shadow-sm p-6 flex flex-col items-center text-center transition hover:shadow-md">
+      <SpeakerAvatar
+        src={speaker.photo}
+        name={speaker.name}
+        className="w-28 h-28 rounded-full"
+        textClassName="text-2xl"
+      />
+      <h3 className="mt-4 font-serif text-base font-bold text-ink">{speaker.name}</h3>
+      <p className="mt-1 text-sm text-muted leading-snug">{speaker.affiliation}</p>
+      {speaker.website && (
+        <a
+          href={speaker.website}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="mt-3 text-sm font-medium text-brand hover:underline"
+        >
+          Website →
+        </a>
+      )}
+    </article>
   );
 }
