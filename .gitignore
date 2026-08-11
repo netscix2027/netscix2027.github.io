@@ -8,3 +8,5 @@ out
 *.tsbuildinfo
 data/
 .local-assets/
+# Organizers' content briefs — working input, not site source
+*.docx
