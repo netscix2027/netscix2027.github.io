@@ -49,26 +49,31 @@ const INVITED: Speaker[] = [
     name: "Carlo Vittorio Cannistraci",
     affiliation: "Tsinghua University, China",
     website: "https://brain.tsinghua.edu.cn/en/info/1010/1003.htm",
+    photo: "/images/speakers/carlo-cannistraci.jpg",
   },
   {
     name: "Michael Small",
     affiliation: "University of Western Australia, Australia",
     website: "https://research-repository.uwa.edu.au/en/persons/michael-small/",
+    photo: "/images/speakers/michael-small.jpg",
   },
   {
     name: "Xavier Bresson",
     affiliation: "National University of Singapore",
     website: "https://graphdeeplearning.github.io/authors/xavier-bresson/",
+    photo: "/images/speakers/xavier-bresson.jpg",
   },
   {
     name: "Marian Boguñá",
     affiliation: "Universitat de Barcelona",
     website: "http://complex.fmc.ub.edu/~mbogunya/",
+    photo: "/images/speakers/marian-boguna.jpg",
   },
   {
     name: "Alice Patania",
     affiliation: "University of Vermont, USA",
     website: "https://alpatania.github.io/",
+    photo: "/images/speakers/alice-patania.jpg",
   },
 ];
 
