@@ -23,15 +23,14 @@ export default function Footer() {
         <FooterCol title="EVENT">
           <FooterLink href="/key-dates">Key Dates</FooterLink>
           <FooterLink href="/speakers">Speakers</FooterLink>
+          <FooterLink href="/abstracts">Submission</FooterLink>
+          <FooterLink href="/registration">Registration</FooterLink>
           <FooterLink href="/more-info">More Info</FooterLink>
           {/*
-            Program / Submission / Registration footer links removed while
-            their pages are stubbed. Restore alongside the Header NAV entries
-            and the page files' commented blocks.
+            Program footer link removed while /program is stubbed. Restore
+            alongside the Header NAV entry and the page file's commented block.
 
             <FooterLink href="/program">Program</FooterLink>
-            <FooterLink href="/abstracts">Submission</FooterLink>
-            <FooterLink href="/registration">Registration</FooterLink>
           */}
         </FooterCol>
 

@@ -24,6 +24,24 @@ const NAV: Item[] = [
     ],
   },
   {
+    label: "Submission",
+    href: "/abstracts",
+    children: [
+      { label: "Deadlines", href: "/abstracts#deadlines" },
+      { label: "Guidelines", href: "/abstracts#guidelines" },
+      { label: "Submit", href: "/abstracts#submit" },
+    ],
+  },
+  {
+    label: "Registration",
+    href: "/registration",
+    children: [
+      { label: "Deadlines", href: "/registration#deadlines" },
+      { label: "Fees", href: "/registration#fees" },
+      { label: "Register", href: "/registration#register" },
+    ],
+  },
+  {
     label: "Organizing Committee",
     href: "/about",
   },
@@ -31,34 +49,11 @@ const NAV: Item[] = [
     label: "More Info",
     href: "/more-info",
   },
-  // Program / Submission / Registration consolidated into /more-info until
-  // their content is finalized. To bring them back, replace the single
-  // More Info entry above with the three original blocks preserved below.
+  // Program stays consolidated into /more-info until the schedule is finalized.
   //
   // {
   //   label: "Program",
   //   href: "/program",
-  // },
-  // {
-  //   label: "Submission",
-  //   href: "/abstracts",
-  //   children: [
-  //     { label: "Deadlines", href: "/abstracts#deadlines" },
-  //     { label: "Guidelines", href: "/abstracts#guidelines" },
-  //     { label: "Submit", href: "/abstracts#submit" },
-  //     { label: "FAQ", href: "/abstracts#faq" },
-  //   ],
-  // },
-  // {
-  //   label: "Registration",
-  //   href: "/registration",
-  //   children: [
-  //     { label: "Deadlines", href: "/registration#deadlines" },
-  //     { label: "Fees", href: "/registration#fees" },
-  //     { label: "Bank details", href: "/registration#bank" },
-  //     { label: "Register", href: "/registration#register" },
-  //     { label: "FAQ", href: "/registration#faq" },
-  //   ],
   // },
   // About page collapsed to only the Organizing Committee section. Restore
   // the dropdown when Venue / Accommodation / Sponsors content is finalized.
@@ -121,7 +116,9 @@ export default function Header() {
           />
         </Link>
 
-        <nav className="hidden md:flex items-stretch gap-1">
+        {/* Seven top-level entries no longer fit next to the logo at md; the
+            inline nav starts at lg and tablets fall back to the panel below. */}
+        <nav className="hidden lg:flex items-stretch gap-1">
           {NAV.map((item) => (
             <NavTrigger
               key={item.href}
@@ -139,7 +136,7 @@ export default function Header() {
 
         <button
           aria-label="Toggle menu"
-          className="md:hidden p-2 text-ink"
+          className="lg:hidden p-2 text-ink"
           onClick={() => setMobileOpen((v) => !v)}
         >
           <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
@@ -157,7 +154,7 @@ export default function Header() {
       </div>
 
       {mobileOpen && (
-        <div className="md:hidden border-t border-gray-200 bg-white">
+        <div className="lg:hidden border-t border-gray-200 bg-white">
           <div className="px-6 py-4 flex flex-col gap-1 max-h-[70vh] overflow-y-auto">
             {NAV.map((item) => (
               <div key={item.href} className="py-1">

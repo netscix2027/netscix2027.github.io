@@ -1,9 +1,8 @@
 import PageHero from "@/components/PageHero";
 
 // Generic placeholder body for pages whose details are not yet finalized.
-// Used by /more-info and by the legacy /program /abstracts /registration
-// routes (which keep their original implementations preserved as line
-// comments at the bottom of each file).
+// Used by /more-info and by /program (which keeps its original implementation
+// preserved as line comments at the bottom of the file).
 export default function MoreInfoNotice({
   title,
   bgImage = "/images/program-bg.jpg",
@@ -26,7 +25,7 @@ export default function MoreInfoNotice({
             More information coming soon
           </h2>
           <p className="mt-5 text-gray-600 leading-relaxed">
-            Detailed information regarding registration and submission will be provided soon.
+            Further details are being finalized and will be published here in due course.
             Please check back closer to the conference.
           </p>
         </div>

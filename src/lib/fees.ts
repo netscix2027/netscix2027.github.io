@@ -1,43 +1,37 @@
-export type Tier = "early" | "standard" | "onsite";
+// Registration fees.
+// Source: organizers' "website_updates_august07" brief.
+// Tier windows follow the registration deadlines in `@/lib/dates`.
+
+export type Tier = "early" | "regular";
+
+export const TIERS: Tier[] = ["early", "regular"];
 
 export const TIER_LABEL: Record<Tier, string> = {
-  early: "Early-bird (until Dec 31, 2026)",
-  standard: "Standard (until Jan 31, 2027)",
-  onsite: "On-site (subject to capacity)",
+  early: "Early bird",
+  regular: "Regular",
 };
 
-export type Category =
-  | "faculty"
-  | "student"
-  | "industry"
-  | "schools-only"
-  | "accompanying";
+export const TIER_WINDOW: Record<Tier, string> = {
+  early: "until Nov 30, 2026",
+  regular: "after Nov 30, 2026",
+};
+
+export type Category = "student" | "faculty" | "industry";
 
 export const CATEGORY_LABEL: Record<Category, string> = {
-  faculty: "Faculty / Postdoc",
-  student: "Student",
+  student: "Students",
+  faculty: "Faculty",
   industry: "Industry",
-  "schools-only": "Schools only (1 day)",
-  accompanying: "Accompanying person (social events)",
 };
 
 export const FEES: Record<Category, Record<Tier, number>> = {
-  faculty: { early: 450, standard: 550, onsite: 650 },
-  student: { early: 250, standard: 320, onsite: 400 },
-  industry: { early: 550, standard: 650, onsite: 750 },
-  "schools-only": { early: 180, standard: 220, onsite: 280 },
-  accompanying: { early: 120, standard: 150, onsite: 180 },
+  student: { early: 275, regular: 325 },
+  faculty: { early: 475, regular: 550 },
+  industry: { early: 700, regular: 750 },
 };
 
-export const SCHOOLS = [
-  "Foundations of Network Science",
-  "Statistical Inference for Networks",
-  "Higher-Order Networks & Hypergraphs",
-  "Dynamical Processes on Networks",
-];
+export const CATEGORIES: Category[] = ["student", "faculty", "industry"];
 
-export function computeFee(category: Category, tier: Tier, accompanying: number): number {
-  const base = FEES[category][tier];
-  const acc = accompanying * FEES.accompanying[tier];
-  return base + acc;
+export function formatFee(amount: number): string {
+  return `$${amount}`;
 }
