@@ -38,6 +38,8 @@ const NAV: Item[] = [
     children: [
       { label: "Deadlines", href: "/registration#deadlines" },
       { label: "Fees", href: "/registration#fees" },
+      { label: "Regional Pricing", href: "/registration#regional-pricing" },
+      { label: "Online Participation", href: "/registration#online" },
       { label: "Register", href: "/registration#register" },
     ],
   },

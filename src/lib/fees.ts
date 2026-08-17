@@ -35,3 +35,9 @@ export const CATEGORIES: Category[] = ["student", "faculty", "industry"];
 export function formatFee(amount: number): string {
   return `$${amount}`;
 }
+
+/**
+ * Online attendance fee, as a share of the regular registration fee.
+ * Source: organizers' "website_updates_august12" brief.
+ */
+export const ONLINE_FEE_SHARE = "15%";

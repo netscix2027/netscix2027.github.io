@@ -8,11 +8,13 @@ import {
   CATEGORIES,
   CATEGORY_LABEL,
   FEES,
+  ONLINE_FEE_SHARE,
   TIERS,
   TIER_LABEL,
   TIER_WINDOW,
   formatFee,
 } from "@/lib/fees";
+import { COUNTRY_TIERS, TIER_1_RULE, WESP_SOURCE } from "@/lib/country-tiers";
 
 export const metadata = { title: "Registration | NetSciX 2027" };
 
@@ -31,6 +33,8 @@ export default function RegistrationPage() {
         items={[
           { id: "deadlines", label: "Deadlines" },
           { id: "fees", label: "Fees" },
+          { id: "regional-pricing", label: "Regional Pricing" },
+          { id: "online", label: "Online Participation" },
           { id: "register", label: "Register" },
         ]}
       />
@@ -58,6 +62,12 @@ export default function RegistrationPage() {
           <h2 className="mt-3 font-serif text-3xl md:text-4xl font-bold text-ink">Fees</h2>
           <p className="mt-3 text-gray-600 max-w-2xl">
             All fees are in US dollars. The tier is set by the date payment is received.
+            Participants whose institution is in a Tier 2 or Tier 3 country receive a discount
+            on these rates — see{" "}
+            <a href="#regional-pricing" className="font-medium text-brand hover:underline">
+              regional pricing
+            </a>{" "}
+            below.
           </p>
 
           <div className="mt-8 hidden md:block overflow-x-auto rounded-xl border border-gray-200 bg-white shadow-sm">
@@ -107,7 +117,7 @@ export default function RegistrationPage() {
                 <div className="font-medium text-ink">{CATEGORY_LABEL[category]}</div>
                 <div className="mt-4 grid grid-cols-2 gap-2 text-center text-sm">
                   {TIERS.map((tier) => (
-                    <Tier
+                    <FeeCell
                       key={tier}
                       label={TIER_LABEL[tier]}
                       value={formatFee(FEES[category][tier])}
@@ -117,6 +127,85 @@ export default function RegistrationPage() {
               </article>
             ))}
           </div>
+        </div>
+      </section>
+
+      {/* Tiered, country-based pricing */}
+      <section id="regional-pricing" className="bg-white border-t border-gray-200">
+        <div className="mx-auto max-w-6xl px-6 py-16">
+          <Badge variant="emerald">Who pays what</Badge>
+          <h2 className="mt-3 font-serif text-3xl md:text-4xl font-bold text-ink">
+            Tiered, Country-Based Registration Pricing
+          </h2>
+          <p className="mt-4 max-w-3xl text-gray-600 leading-relaxed">
+            In order to make the conference more accessible to participants from all regions,
+            we offer tiered registration pricing based on the country of your institution.
+            Country tiers follow the income classifications used in the United Nations World
+            Economic Situation and Prospects (WESP) report, and are listed below. The discount
+            applies to the corresponding early-bird or regular fee of each participant.
+          </p>
+
+          <h3 className="mt-12 font-serif text-xl font-bold text-ink">Pricing tiers</h3>
+          <div className="mt-4 max-w-md overflow-x-auto rounded-xl border border-gray-200 bg-white shadow-sm">
+            <table className="w-full text-left">
+              <thead className="bg-ink text-white">
+                <tr>
+                  <th className="px-5 py-3 font-medium text-sm">Tier</th>
+                  <th className="px-5 py-3 font-medium text-sm">Discount</th>
+                </tr>
+              </thead>
+              <tbody className="divide-y divide-gray-100">
+                {COUNTRY_TIERS.map((tier) => (
+                  <tr key={tier.id} className="text-sm">
+                    <td className="px-5 py-3 font-medium text-ink">{tier.label}</td>
+                    <td className="px-5 py-3 font-mono text-emerald-700">{tier.discount}</td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
+
+          <h3 className="mt-12 font-serif text-xl font-bold text-ink">Country list by tier</h3>
+          <div className="mt-6 space-y-8">
+            {COUNTRY_TIERS.map((tier) => (
+              <div key={tier.id}>
+                <div className="flex flex-wrap items-baseline gap-x-3">
+                  <h4 className="font-semibold text-ink">{tier.label}</h4>
+                  <span className="text-sm text-muted">{tier.discount} discount</span>
+                </div>
+                {tier.countries.length === 0 ? (
+                  <p className="mt-2 text-sm text-gray-700">{TIER_1_RULE}</p>
+                ) : (
+                  <ul className="mt-3 columns-2 sm:columns-3 lg:columns-4 gap-6 text-sm text-gray-700">
+                    {tier.countries.map((country) => (
+                      <li key={country} className="break-inside-avoid py-0.5">
+                        {country}
+                      </li>
+                    ))}
+                  </ul>
+                )}
+              </div>
+            ))}
+          </div>
+
+          <p className="mt-10 max-w-3xl text-sm text-muted leading-relaxed">{WESP_SOURCE}</p>
+        </div>
+      </section>
+
+      {/* Online participation */}
+      <section id="online" className="bg-gray-50 border-t border-gray-200">
+        <div className="mx-auto max-w-3xl px-6 py-16">
+          <Badge variant="violet">Attend remotely</Badge>
+          <h2 className="mt-3 font-serif text-3xl md:text-4xl font-bold text-ink">
+            Online participation
+          </h2>
+          <p className="mt-4 text-gray-600 leading-relaxed">
+            In addition to regular on-site participation, we offer the possibility of online
+            participation to the conference. Online participation will grant access to keynote
+            and invited talks, as well as to selected presentation tracks, to be determined.
+            The online registration fee is a flat {ONLINE_FEE_SHARE} of the regular registration
+            fee.
+          </p>
         </div>
       </section>
 
@@ -138,7 +227,9 @@ export default function RegistrationPage() {
   );
 }
 
-function Tier({ label, value }: { label: string; value: string }) {
+// One early-bird / regular price cell in the mobile fee cards. Named apart from
+// the country tiers so the two "tier" concepts on this page stay distinguishable.
+function FeeCell({ label, value }: { label: string; value: string }) {
   return (
     <div className="rounded-md bg-blue-50 border border-blue-200 py-2">
       <div className="text-[10px] uppercase tracking-widest text-blue-700">{label}</div>
