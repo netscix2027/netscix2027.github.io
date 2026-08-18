@@ -9,6 +9,8 @@ export type CountryTier = {
   label: string;
   /** Discount off the corresponding early-bird or regular fee. */
   discount: string;
+  /** Wording used in place of "N% discount" where a bare percentage reads badly. */
+  discountNote?: string;
   /** Empty for Tier 1, which is defined by exclusion — see TIER_1_RULE. */
   countries: string[];
 };
@@ -19,7 +21,8 @@ export const COUNTRY_TIERS: CountryTier[] = [
   {
     id: 1,
     label: "Tier 1",
-    discount: "0% (standard rate)",
+    discount: "0%",
+    discountNote: "standard rate",
     countries: [],
   },
   {

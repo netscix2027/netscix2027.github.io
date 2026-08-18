@@ -158,7 +158,12 @@ export default function RegistrationPage() {
                 {COUNTRY_TIERS.map((tier) => (
                   <tr key={tier.id} className="text-sm">
                     <td className="px-5 py-3 font-medium text-ink">{tier.label}</td>
-                    <td className="px-5 py-3 font-mono text-emerald-700">{tier.discount}</td>
+                    <td className="px-5 py-3 font-mono text-emerald-700">
+                      {tier.discount}
+                      {tier.discountNote && (
+                        <span className="ml-2 font-sans text-muted">({tier.discountNote})</span>
+                      )}
+                    </td>
                   </tr>
                 ))}
               </tbody>
@@ -171,7 +176,9 @@ export default function RegistrationPage() {
               <div key={tier.id}>
                 <div className="flex flex-wrap items-baseline gap-x-3">
                   <h4 className="font-semibold text-ink">{tier.label}</h4>
-                  <span className="text-sm text-muted">{tier.discount} discount</span>
+                  <span className="text-sm text-muted">
+                    {tier.discountNote ?? `${tier.discount} discount`}
+                  </span>
                 </div>
                 {tier.countries.length === 0 ? (
                   <p className="mt-2 text-sm text-gray-700">{TIER_1_RULE}</p>
