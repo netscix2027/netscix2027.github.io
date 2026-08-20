@@ -6,6 +6,7 @@ export const metadata = { title: "Organizing Committee | NetSciX 2027" };
 type Member = { name: string; affiliation?: string; photo?: string };
 type Group = { title: string; members: Member[] };
 
+// Members within each group are ordered alphabetically by first name.
 const COMMITTEE: Group[] = [
   {
     title: "Conference Chair",
@@ -21,6 +22,11 @@ const COMMITTEE: Group[] = [
     title: "Organizing Committee",
     members: [
       {
+        name: "Daniel Ebler",
+        affiliation: "Hong Kong University",
+        photo: "/images/committee/daniel-ebler.jpg",
+      },
+      {
         name: "Jie Sun",
         affiliation: "Huawei Hong Kong Research Center",
         photo: "/images/committee/jie-sun.jpg",
@@ -29,11 +35,6 @@ const COMMITTEE: Group[] = [
         name: "Renaud Lambiotte",
         affiliation: "University of Oxford",
         photo: "/images/committee/renaud-lambiotte.jpg",
-      },
-      {
-        name: "Daniel Ebler",
-        affiliation: "Hong Kong University",
-        photo: "/images/committee/daniel-ebler.jpg",
       },
       {
         name: "Shihui Feng",
