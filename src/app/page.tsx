@@ -74,11 +74,6 @@ export default function HomePage() {
                 artificial intelligence, and vice versa.
               </p>
             </div>
-
-            <div className="mt-8 border-l-2 border-brand pl-4">
-              <p className="font-serif text-lg font-semibold text-ink">Jie Sun</p>
-              <p className="text-sm text-muted">Conference Chair</p>
-            </div>
           </div>
         </div>
       </section>

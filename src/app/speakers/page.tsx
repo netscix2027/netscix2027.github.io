@@ -11,18 +11,19 @@ type Speaker = {
   photo?: string;
 };
 
+// Ordered alphabetically by first name.
 const KEYNOTES: Speaker[] = [
+  {
+    name: "Christopher Moore",
+    affiliation: "Santa Fe Institute, USA",
+    website: "https://sites.santafe.edu/~moore/",
+    photo: "/images/speakers/christopher-moore.jpg",
+  },
   {
     name: "Guanrong Chen",
     affiliation: "City University of Hong Kong",
     website: "https://www.ee.cityu.edu.hk/~gchen/",
     photo: "/images/speakers/guanrong-chen.jpg",
-  },
-  {
-    name: "Marta González",
-    affiliation: "University of California, Berkeley, USA",
-    website: "https://ced.berkeley.edu/people/marta-gonzalez",
-    photo: "/images/speakers/marta-gonzalez.jpg",
   },
   {
     name: "Mario di Bernardo",
@@ -31,10 +32,10 @@ const KEYNOTES: Speaker[] = [
     photo: "/images/speakers/mario-di-bernardo.jpg",
   },
   {
-    name: "Christopher Moore",
-    affiliation: "Santa Fe Institute, USA",
-    website: "https://sites.santafe.edu/~moore/",
-    photo: "/images/speakers/christopher-moore.jpg",
+    name: "Marta González",
+    affiliation: "University of California, Berkeley, USA",
+    website: "https://ced.berkeley.edu/people/marta-gonzalez",
+    photo: "/images/speakers/marta-gonzalez.jpg",
   },
   {
     name: "Yizhou Sun",
@@ -44,12 +45,25 @@ const KEYNOTES: Speaker[] = [
   },
 ];
 
+// Ordered alphabetically by first name.
 const INVITED: Speaker[] = [
+  {
+    name: "Alice Patania",
+    affiliation: "University of Vermont, USA",
+    website: "https://alpatania.github.io/",
+    photo: "/images/speakers/alice-patania.jpg",
+  },
   {
     name: "Carlo Vittorio Cannistraci",
     affiliation: "Tsinghua University, China",
     website: "https://brain.tsinghua.edu.cn/en/info/1010/1003.htm",
     photo: "/images/speakers/carlo-cannistraci.jpg",
+  },
+  {
+    name: "Marian Boguñá",
+    affiliation: "Universitat de Barcelona",
+    website: "http://complex.fmc.ub.edu/~mbogunya/",
+    photo: "/images/speakers/marian-boguna.jpg",
   },
   {
     name: "Michael Small",
@@ -62,18 +76,6 @@ const INVITED: Speaker[] = [
     affiliation: "National University of Singapore",
     website: "https://graphdeeplearning.github.io/authors/xavier-bresson/",
     photo: "/images/speakers/xavier-bresson.jpg",
-  },
-  {
-    name: "Marian Boguñá",
-    affiliation: "Universitat de Barcelona",
-    website: "http://complex.fmc.ub.edu/~mbogunya/",
-    photo: "/images/speakers/marian-boguna.jpg",
-  },
-  {
-    name: "Alice Patania",
-    affiliation: "University of Vermont, USA",
-    website: "https://alpatania.github.io/",
-    photo: "/images/speakers/alice-patania.jpg",
   },
 ];
 
