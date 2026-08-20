@@ -79,6 +79,9 @@ const INVITED: Speaker[] = [
   },
 ];
 
+// Shown under both speaker grids, so readers don't infer a ranking from the order.
+const ORDER_NOTE = "Speakers are ordered alphabetically by first name.";
+
 export default function SpeakersPage() {
   return (
     <>
@@ -109,6 +112,7 @@ export default function SpeakersPage() {
               <SpeakerCard key={s.name} speaker={s} />
             ))}
           </div>
+          <p className="mt-8 text-sm text-muted">{ORDER_NOTE}</p>
         </div>
       </section>
 
@@ -126,6 +130,7 @@ export default function SpeakersPage() {
               <SpeakerCard key={s.name} speaker={s} />
             ))}
           </div>
+          <p className="mt-8 text-sm text-muted">{ORDER_NOTE}</p>
         </div>
       </section>
     </>
