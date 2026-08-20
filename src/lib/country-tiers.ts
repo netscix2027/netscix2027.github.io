@@ -1,167 +1,37 @@
 // Tiered, country-based registration pricing.
 // Source: organizers' "website_updates_august12" brief. The discount applies to
 // the participant's early-bird or regular fee from `@/lib/fees`.
+//
+// Tier membership is defined by Table E (per capita GNI classification, as of
+// July 2025, p. 151) of the Statistical Annex of the UN World Economic Situation
+// and Prospects (WESP) 2026 report — see WESP_TABLE_E_URL below.
+// The per-country lists are no longer published on the site — see git history
+// (before the Aug 2026 trim) if they need to be restored.
 
 export type TierId = 1 | 2 | 3;
 
 export type CountryTier = {
   id: TierId;
   label: string;
+  /** The tier's income category as named in WESP Table E. */
+  wespCategory: string;
   /** Discount off the corresponding early-bird or regular fee. */
   discount: string;
   /** Wording used in place of "N% discount" where a bare percentage reads badly. */
   discountNote?: string;
-  /** Empty for Tier 1, which is defined by exclusion — see TIER_1_RULE. */
-  countries: string[];
 };
-
-export const TIER_1_RULE = "All countries not listed under Tier 2 or Tier 3.";
 
 export const COUNTRY_TIERS: CountryTier[] = [
   {
     id: 1,
     label: "Tier 1",
+    wespCategory: "High-income",
     discount: "0%",
     discountNote: "standard rate",
-    countries: [],
   },
-  {
-    id: 2,
-    label: "Tier 2",
-    discount: "20%",
-    countries: [
-      "Albania",
-      "Algeria",
-      "Argentina",
-      "Armenia",
-      "Azerbaijan",
-      "Belarus",
-      "Belize",
-      "Bosnia and Herzegovina",
-      "Botswana",
-      "Brazil",
-      "Cabo Verde",
-      "China",
-      "Colombia",
-      "Cuba",
-      "Dominican Republic",
-      "Ecuador",
-      "El Salvador",
-      "Equatorial Guinea",
-      "Fiji",
-      "Gabon",
-      "Georgia",
-      "Guatemala",
-      "Indonesia",
-      "Iran (Islamic Republic of)",
-      "Iraq",
-      "Jamaica",
-      "Kazakhstan",
-      "Libya",
-      "Malaysia",
-      "Maldives",
-      "Mauritius",
-      "Mexico",
-      "Mongolia",
-      "Montenegro",
-      "North Macedonia",
-      "Paraguay",
-      "Peru",
-      "Republic of Moldova",
-      "Samoa",
-      "Serbia",
-      "South Africa",
-      "Suriname",
-      "Thailand",
-      "Türkiye",
-      "Turkmenistan",
-      "Ukraine",
-    ],
-  },
-  {
-    id: 3,
-    label: "Tier 3",
-    discount: "40%",
-    countries: [
-      "Afghanistan",
-      "Angola",
-      "Bangladesh",
-      "Benin",
-      "Bhutan",
-      "Bolivia (Plurinational State of)",
-      "Burkina Faso",
-      "Burundi",
-      "Cambodia",
-      "Cameroon",
-      "Central African Republic",
-      "Chad",
-      "Comoros",
-      "Congo",
-      "Côte d'Ivoire",
-      "Democratic People's Republic of Korea",
-      "Democratic Republic of the Congo",
-      "Djibouti",
-      "Egypt",
-      "Eritrea",
-      "Eswatini",
-      "Gambia",
-      "Ghana",
-      "Guinea",
-      "Guinea-Bissau",
-      "Haiti",
-      "Honduras",
-      "India",
-      "Jordan",
-      "Kenya",
-      "Kiribati",
-      "Kyrgyzstan",
-      "Lao People's Democratic Republic",
-      "Lebanon",
-      "Lesotho",
-      "Liberia",
-      "Madagascar",
-      "Malawi",
-      "Mali",
-      "Mauritania",
-      "Morocco",
-      "Mozambique",
-      "Myanmar",
-      "Namibia",
-      "Nepal",
-      "Nicaragua",
-      "Niger",
-      "Nigeria",
-      "Pakistan",
-      "Papua New Guinea",
-      "Philippines",
-      "Rwanda",
-      "Sao Tome and Principe",
-      "Senegal",
-      "Sierra Leone",
-      "Solomon Islands",
-      "Somalia",
-      "South Sudan",
-      "Sri Lanka",
-      "State of Palestine",
-      "Sudan",
-      "Syrian Arab Republic",
-      "Tajikistan",
-      "Timor-Leste",
-      "Togo",
-      "Tunisia",
-      "Uganda",
-      "United Republic of Tanzania",
-      "Uzbekistan",
-      "Vanuatu",
-      "Viet Nam",
-      "Yemen",
-      "Zambia",
-      "Zimbabwe",
-    ],
-  },
+  { id: 2, label: "Tier 2", wespCategory: "Upper-middle income", discount: "20%" },
+  { id: 3, label: "Tier 3", wespCategory: "Lower-middle income & Low income", discount: "40%" },
 ];
 
-export const WESP_SOURCE =
-  "Country classifications are drawn directly from Table E (per capita GNI classification, " +
-  "as at 1 July 2025) of the Statistical Annex of the United Nations World Economic Situation " +
-  "and Prospects (WESP) 2026 report.";
+/** Table E of the WESP 2026 Statistical Annex, which defines the categories above. */
+export const WESP_TABLE_E_URL = "https://desapublications.un.org/file/21554/download";

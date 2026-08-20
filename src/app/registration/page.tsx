@@ -14,7 +14,7 @@ import {
   TIER_WINDOW,
   formatFee,
 } from "@/lib/fees";
-import { COUNTRY_TIERS, TIER_1_RULE, WESP_SOURCE } from "@/lib/country-tiers";
+import { COUNTRY_TIERS, WESP_TABLE_E_URL } from "@/lib/country-tiers";
 
 export const metadata = { title: "Registration | NetSciX 2027" };
 
@@ -33,15 +33,15 @@ export default function RegistrationPage() {
         items={[
           { id: "deadlines", label: "Deadlines" },
           { id: "fees", label: "Fees" },
-          { id: "regional-pricing", label: "Regional Pricing" },
           { id: "online", label: "Online Participation" },
+          { id: "regional-pricing", label: "Regional Pricing" },
           { id: "register", label: "Register" },
         ]}
       />
 
       {/* Deadlines */}
       <section id="deadlines" className="bg-white">
-        <div className="mx-auto max-w-4xl px-6 py-16">
+        <div className="mx-auto max-w-3xl px-6 py-16">
           <Badge variant="amber">When</Badge>
           <h2 className="mt-3 font-serif text-3xl md:text-4xl font-bold text-ink">Deadlines</h2>
           <p className="mt-3 text-gray-600">{AOE_NOTE}</p>
@@ -130,75 +130,6 @@ export default function RegistrationPage() {
         </div>
       </section>
 
-      {/* Tiered, country-based pricing */}
-      <section id="regional-pricing" className="bg-white border-t border-gray-200">
-        <div className="mx-auto max-w-6xl px-6 py-16">
-          <Badge variant="emerald">Who pays what</Badge>
-          <h2 className="mt-3 font-serif text-3xl md:text-4xl font-bold text-ink">
-            Tiered, Country-Based Registration Pricing
-          </h2>
-          <p className="mt-4 max-w-3xl text-gray-600 leading-relaxed">
-            In order to make the conference more accessible to participants from all regions,
-            we offer tiered registration pricing based on the country of your institution.
-            Country tiers follow the income classifications used in the United Nations World
-            Economic Situation and Prospects (WESP) report, and are listed below. The discount
-            applies to the corresponding early-bird or regular fee of each participant.
-          </p>
-
-          <h3 className="mt-12 font-serif text-xl font-bold text-ink">Pricing tiers</h3>
-          <div className="mt-4 max-w-md overflow-x-auto rounded-xl border border-gray-200 bg-white shadow-sm">
-            <table className="w-full text-left">
-              <thead className="bg-ink text-white">
-                <tr>
-                  <th className="px-5 py-3 font-medium text-sm">Tier</th>
-                  <th className="px-5 py-3 font-medium text-sm">Discount</th>
-                </tr>
-              </thead>
-              <tbody className="divide-y divide-gray-100">
-                {COUNTRY_TIERS.map((tier) => (
-                  <tr key={tier.id} className="text-sm">
-                    <td className="px-5 py-3 font-medium text-ink">{tier.label}</td>
-                    <td className="px-5 py-3 font-mono text-emerald-700">
-                      {tier.discount}
-                      {tier.discountNote && (
-                        <span className="ml-2 font-sans text-muted">({tier.discountNote})</span>
-                      )}
-                    </td>
-                  </tr>
-                ))}
-              </tbody>
-            </table>
-          </div>
-
-          <h3 className="mt-12 font-serif text-xl font-bold text-ink">Country list by tier</h3>
-          <div className="mt-6 space-y-8">
-            {COUNTRY_TIERS.map((tier) => (
-              <div key={tier.id}>
-                <div className="flex flex-wrap items-baseline gap-x-3">
-                  <h4 className="font-semibold text-ink">{tier.label}</h4>
-                  <span className="text-sm text-muted">
-                    {tier.discountNote ?? `${tier.discount} discount`}
-                  </span>
-                </div>
-                {tier.countries.length === 0 ? (
-                  <p className="mt-2 text-sm text-gray-700">{TIER_1_RULE}</p>
-                ) : (
-                  <ul className="mt-3 columns-2 sm:columns-3 lg:columns-4 gap-6 text-sm text-gray-700">
-                    {tier.countries.map((country) => (
-                      <li key={country} className="break-inside-avoid py-0.5">
-                        {country}
-                      </li>
-                    ))}
-                  </ul>
-                )}
-              </div>
-            ))}
-          </div>
-
-          <p className="mt-10 max-w-3xl text-sm text-muted leading-relaxed">{WESP_SOURCE}</p>
-        </div>
-      </section>
-
       {/* Online participation */}
       <section id="online" className="bg-gray-50 border-t border-gray-200">
         <div className="mx-auto max-w-3xl px-6 py-16">
@@ -216,8 +147,64 @@ export default function RegistrationPage() {
         </div>
       </section>
 
+      {/* Tiered, country-based pricing */}
+      <section id="regional-pricing" className="bg-white border-t border-gray-200">
+        <div className="mx-auto max-w-6xl px-6 py-16">
+          <Badge variant="emerald">Who pays what</Badge>
+          <h2 className="mt-3 font-serif text-3xl md:text-4xl font-bold text-ink">
+            Tiered, Country-Based Registration Pricing
+          </h2>
+          <p className="mt-4 max-w-3xl text-gray-600 leading-relaxed">
+            In order to make the conference more accessible to participants from all regions,
+            we offer tiered registration pricing based on the country of your institution.
+            Country tiers are based on Table E (per capita GNI classification, as of July 2025)
+            on page 151 of the Statistical Annex of the United Nations World Economic Situation
+            and Prospects (WESP) 2026 report (
+            <a
+              href={WESP_TABLE_E_URL}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="font-medium text-brand hover:underline"
+            >
+              link
+            </a>
+            ). The discount applies to the corresponding early-bird or regular fee of each
+            participant.
+          </p>
+
+          <h3 className="mt-12 font-serif text-xl font-bold text-ink">Pricing tiers</h3>
+          <div className="mt-4 max-w-3xl overflow-x-auto rounded-xl border border-gray-200 bg-white shadow-sm">
+            <table className="w-full text-left">
+              <thead className="bg-ink text-white">
+                <tr>
+                  <th className="px-5 py-3 font-medium text-sm">Tier</th>
+                  <th className="px-5 py-3 font-medium text-sm">
+                    Category from WESP Statistical Annex, Table E
+                  </th>
+                  <th className="px-5 py-3 font-medium text-sm">Discount</th>
+                </tr>
+              </thead>
+              <tbody className="divide-y divide-gray-100">
+                {COUNTRY_TIERS.map((tier) => (
+                  <tr key={tier.id} className="text-sm">
+                    <td className="px-5 py-3 font-medium text-ink">{tier.label}</td>
+                    <td className="px-5 py-3 text-ink">{tier.wespCategory}</td>
+                    <td className="px-5 py-3 font-mono text-emerald-700">
+                      {tier.discount}
+                      {tier.discountNote && (
+                        <span className="ml-2 font-sans text-muted">({tier.discountNote})</span>
+                      )}
+                    </td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </section>
+
       {/* Register */}
-      <section id="register" className="bg-white border-t border-gray-200">
+      <section id="register" className="bg-gray-50 border-t border-gray-200">
         <div className="mx-auto max-w-3xl px-6 py-16">
           <Badge variant="brand">Sign up</Badge>
           <h2 className="mt-3 font-serif text-3xl md:text-4xl font-bold text-ink">Register</h2>
