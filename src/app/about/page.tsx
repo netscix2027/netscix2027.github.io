@@ -68,6 +68,26 @@ const COMMITTEE: Group[] = [
       },
     ],
   },
+  {
+    title: "Conference Secretary",
+    members: [
+      {
+        name: "Roberto Fabio Leonarduzzi",
+        affiliation: "Huawei Hong Kong Research Center",
+        photo: "/images/committee/roberto-leonarduzzi.jpg",
+      },
+    ],
+  },
+  {
+    title: "Local Logistics",
+    members: [
+      {
+        name: "Fan Rong",
+        affiliation: "Huawei Hong Kong Research Center",
+        photo: "/images/committee/fan-rong.jpg",
+      },
+    ],
+  },
 ];
 
 export default function AboutPage() {
