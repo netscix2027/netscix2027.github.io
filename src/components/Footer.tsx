@@ -49,12 +49,7 @@ export default function Footer() {
 
         <FooterCol title="QUICK LINKS">
           <FooterLink href="/">Home</FooterLink>
-          {/*
-            Contact link removed — the homepage #contact anchor no longer
-            exists. Restore alongside the ContactSection on the homepage.
-
-            <FooterLink href="/#contact">Contact</FooterLink>
-          */}
+          <FooterLink href="/#contact">Contact</FooterLink>
         </FooterCol>
 
         {/*
