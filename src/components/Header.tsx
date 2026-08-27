@@ -48,11 +48,17 @@ const NAV: Item[] = [
     ],
   },
   {
-    // Shortened from "Organizing Committee" — it was the widest label and made
-    // the inline nav wrap to two lines at the lg breakpoint. The page itself
-    // still carries the full name.
-    label: "Organizers",
+    // "About" rather than the shorter-lived "Organizers": the page covers the
+    // venue, accommodation and sponsors again. It is also the narrower label,
+    // which is what keeps the inline nav on one line at the lg breakpoint.
+    label: "About",
     href: "/about",
+    children: [
+      { label: "Organizing Committee", href: "/about#committee" },
+      { label: "Venue", href: "/about#venue" },
+      { label: "Accommodation", href: "/about#accommodation" },
+      { label: "Sponsors", href: "/about#sponsors" },
+    ],
   },
   {
     label: "More Info",
@@ -66,19 +72,6 @@ const NAV: Item[] = [
   // {
   //   label: "Program",
   //   href: "/program",
-  // },
-  // About page collapsed to only the Organizing Committee section. Restore
-  // the dropdown when Venue / Accommodation / Sponsors content is finalized.
-  //
-  // {
-  //   label: "About",
-  //   href: "/about",
-  //   children: [
-  //     { label: "Venue", href: "/about#venue" },
-  //     { label: "Accommodation", href: "/about#accommodation" },
-  //     { label: "Organizing Committee", href: "/about#committee" },
-  //     { label: "Sponsors", href: "/about#sponsors" },
-  //   ],
   // },
 ];
 
