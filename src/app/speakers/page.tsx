@@ -66,6 +66,12 @@ const INVITED: Speaker[] = [
     photo: "/images/speakers/marian-boguna.jpg",
   },
   {
+    name: "Marta Sales Pardo",
+    affiliation: "Universitat Rovira i Virgili",
+    website: "https://www.deq.urv.cat/en/people/marta-sales/",
+    photo: "/images/speakers/marta-sales-pardo.jpg",
+  },
+  {
     name: "Michael Small",
     affiliation: "University of Western Australia, Australia",
     website: "https://research-repository.uwa.edu.au/en/persons/michael-small/",
