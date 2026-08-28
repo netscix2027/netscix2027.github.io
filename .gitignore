@@ -10,3 +10,5 @@ data/
 .local-assets/
 # Organizers' content briefs — working input, not site source
 *.docx
+# ...except the abstract templates, which the site actually serves
+!public/templates/*.docx
