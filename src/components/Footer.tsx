@@ -23,7 +23,7 @@ export default function Footer() {
         <FooterCol title="EVENT">
           <FooterLink href="/key-dates">Key Dates</FooterLink>
           <FooterLink href="/speakers">Speakers</FooterLink>
-          <FooterLink href="/abstracts">Submission</FooterLink>
+          <FooterLink href="/submissions">Submission</FooterLink>
           <FooterLink href="/registration">Registration</FooterLink>
           <FooterLink href="/more-info">More Info</FooterLink>
           {/*

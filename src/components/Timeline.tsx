@@ -1,6 +1,6 @@
 import type { Milestone } from "@/lib/dates";
 
-// Vertical deadline timeline shared by /key-dates, /abstracts and /registration.
+// Vertical deadline timeline shared by /key-dates, /submissions and /registration.
 export default function Timeline({
   items,
   accent = "ink",

@@ -25,11 +25,11 @@ const NAV: Item[] = [
   },
   {
     label: "Submission",
-    href: "/abstracts",
+    href: "/submissions",
     children: [
-      { label: "Deadlines", href: "/abstracts#deadlines" },
-      { label: "Submit", href: "/abstracts#submit" },
-      { label: "Guidelines", href: "/abstracts#guidelines" },
+      { label: "Deadlines", href: "/submissions#deadlines" },
+      { label: "Submit", href: "/submissions#submit" },
+      { label: "Guidelines", href: "/submissions#guidelines" },
     ],
   },
   {
