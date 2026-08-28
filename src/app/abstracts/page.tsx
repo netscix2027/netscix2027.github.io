@@ -87,8 +87,7 @@ export default function AbstractsPage() {
           <ul className="mt-4 space-y-3 text-sm text-gray-700">
             <li>
               <span className="font-medium text-ink">Page 1.</span> Title, authors and
-              affiliations, keywords, submission topic(s), and the abstract body (approx.
-              700–900 words).
+              affiliations, keywords, and the abstract body.
             </li>
             <li>
               <span className="font-medium text-ink">Page 2.</span> Figures, tables, and
@@ -122,30 +121,8 @@ export default function AbstractsPage() {
               ))}
             </ul>
           </div>
-
-          {/* Anonymity */}
-          <h3 className="mt-12 font-serif text-xl font-bold text-ink">
-            Anonymity (double-blind review)
-          </h3>
           <p className="mt-4 text-gray-600 leading-relaxed">
-            All submissions are reviewed double-blind. Authors must:
-          </p>
-          <ul className="mt-4 space-y-3 text-sm text-gray-700">
-            <li>
-              Omit author names and affiliations from the PDF (use the placeholder text provided
-              in the template).
-            </li>
-            <li>
-              Avoid self-identifying language (e.g. &ldquo;in our previous work [X],
-              we&hellip;&rdquo; — rephrase in the third person).
-            </li>
-            <li>
-              Remove identifying metadata from the PDF file (check File Properties before
-              upload).
-            </li>
-          </ul>
-          <p className="mt-4 text-gray-600 leading-relaxed">
-            Non-anonymised submissions will be rejected without review.
+            Both completed work and ongoing research with preliminary results are welcome.
           </p>
 
           {/* Page layout */}
@@ -169,28 +146,6 @@ export default function AbstractsPage() {
             <li>
               <span className="font-medium text-ink">Figures and tables.</span> Must fit within
               the page-2 margins; do not use landscape orientation.
-            </li>
-          </ul>
-
-          {/* Content requirements */}
-          <h3 className="mt-12 font-serif text-xl font-bold text-ink">Content requirements</h3>
-          <ul className="mt-4 space-y-3 text-sm text-gray-700">
-            <li>
-              <span className="font-medium text-ink">Keywords.</span> 3–5 terms.
-            </li>
-            <li>
-              <span className="font-medium text-ink">Citations.</span> Any consistent numbered
-              or author-date style is accepted; the reference list must appear on page 2 only.
-            </li>
-            <li>
-              <span className="font-medium text-ink">Ethics statement.</span> If your work
-              involves human subjects data, sensitive attributes, or dual-use concerns, include
-              a one- or two-sentence note on ethical considerations within the abstract body.
-            </li>
-            <li>
-              <span className="font-medium text-ink">Data and code availability.</span> Where
-              applicable, note whether data and code are publicly available (a link may be
-              included in the references).
             </li>
           </ul>
 
@@ -219,17 +174,6 @@ export default function AbstractsPage() {
             format based on fit, scientific quality, and programme balance.
           </p>
 
-          {/* Review process */}
-          <h3 className="mt-12 font-serif text-xl font-bold text-ink">Review process</h3>
-          <p className="mt-4 text-gray-600 leading-relaxed">
-            Both completed work and ongoing research with preliminary results are welcome.
-          </p>
-          <p className="mt-4 text-gray-600 leading-relaxed">
-            Each submission will receive a minimum of two anonymous reviews. Submissions will be
-            assessed on relevance to the conference topics, scientific quality, potential
-            impact, and suitability for the requested presentation format.
-          </p>
-
           {/* Submission system */}
           <h3 className="mt-12 font-serif text-xl font-bold text-ink">Submission system</h3>
           <p className="mt-4 text-gray-600 leading-relaxed">
@@ -254,7 +198,7 @@ export default function AbstractsPage() {
           <h3 className="mt-12 font-serif text-xl font-bold text-ink">Attendance requirement</h3>
           <p className="mt-4 text-gray-600 leading-relaxed">
             At least one author of each accepted submission must register for the main
-            conference and present in person.
+            conference.
           </p>
         </div>
       </section>
