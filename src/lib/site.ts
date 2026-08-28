@@ -10,11 +10,15 @@ export const SITE_URL = "https://netscix2027.github.io";
 // /program is deliberately absent: it is a placeholder that nothing links to
 // (the nav consolidates it into /more-info), so advertising it to crawlers
 // would only offer them a thin, orphaned page.
+//
+// /abstracts is absent for the same reason: it is now a noindex redirect stub
+// left behind by the rename to /submissions, so the sitemap points at the real
+// page instead.
 export const SITEMAP_PATHS = [
   "/",
   "/key-dates/",
   "/speakers/",
-  "/abstracts/",
+  "/submissions/",
   "/registration/",
   "/about/",
   "/more-info/",
