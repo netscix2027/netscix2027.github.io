@@ -1,0 +1,130 @@
+% =====================================================================
+%  NetSciX 2027 — Two-Page Extended Abstract Template
+%  ---------------------------------------------------------------
+%  Page 1 : Title, authors, keywords, main text
+%  Page 2 : Figures, tables, and references ONLY (no body text)
+%
+%  DO NOT alter margins, fonts, or the page-break structure below.
+%  Compile with pdfLaTeX. Output must be a single PDF.
+% =====================================================================
+\documentclass[10pt]{article}
+
+% ---------- Page geometry (do not change) ----------
+\usepackage[a4paper,margin=20mm]{geometry}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\renewcommand{\familydefault}{\sfdefault}  % sans-serif, matches NetSci/NetSciX house style
+\usepackage{graphicx}
+\usepackage{amsmath,amssymb}
+\usepackage[colorlinks=true,linkcolor=blue,citecolor=blue,urlcolor=blue]{hyperref}
+\usepackage[numbers,sort&compress]{natbib}
+\pagestyle{empty}          % no page numbers, no headers/footers
+\setlength{\parskip}{0.4\baselineskip}
+\setlength{\parindent}{0pt}
+
+% ---------- Title / author macros ----------
+\newcommand{\absTitle}[1]{{\noindent\Large\bfseries #1\par\medskip}}
+\newcommand{\absAuthors}[1]{{\noindent\normalsize #1\par\smallskip}}
+\newcommand{\absAffil}[1]{{\noindent\small\itshape #1\par\medskip}}
+\newcommand{\affilnum}[1]{\textsuperscript{#1}}
+\newcommand{\absKeywords}[1]{{\noindent\small\textbf{Keywords:} #1\par\medskip}}
+
+\begin{document}
+
+% =====================================================================
+% PAGE 1 — TITLE, AUTHORS, ABSTRACT BODY
+% =====================================================================
+
+% --- Title ---
+\absTitle{Full Title of the Submission Goes Here}
+
+% --- Authors & affiliations ---
+% List all authors with superscript numbers linking each to their
+% affiliation(s) below. Mark the corresponding author with an asterisk
+% and give their email address in the affiliation block.
+\absAuthors{Jane A.~Doe\affilnum{1,*}, John B.~Smith\affilnum{2}, Aroha M.~Ngata\affilnum{1}}
+\absAffil{\affilnum{1}Department of Network Science, University Name, City, Country \\
+\affilnum{2}Institute of Complex Systems, Other University, City, Country \\
+\affilnum{*}Corresponding author: jane.doe@example.edu}
+
+% --- Keywords (choose 3-5 terms) ---
+\absKeywords{network embedding; graph neural networks; higher-order interactions}
+\bigskip
+
+% --- Abstract body -----------------------------------------------------
+% Do NOT include figures, tables, or a bibliography on this page --
+% they belong on page 2 only.
+
+Write your extended abstract here. State the research question or problem,
+the network-science approach or methods used, the data (if any), the main
+findings, and their significance for the field. In-text citations use the
+numeric style, e.g. preferential attachment models \citep{barabasi1999emergence}
+and community detection \citep{fortunato2010community}.
+
+You may refer to figures or tables that appear on page 2, e.g. ``the
+degree distribution is shown in Figure~1'' or ``see Table~1 for summary
+statistics.'' The figures/tables themselves must physically appear on
+page 2, not here.
+
+If you are submitting original data analyses, briefly note data availability
+and any ethical considerations relevant to your work (see submission
+guidelines).
+
+\clearpage
+% =====================================================================
+% PAGE 2 — FIGURES, TABLES, AND REFERENCES ONLY
+% (No additional body text is permitted on this page.)
+%
+% You may include MULTIPLE figures and/or tables, provided that ALL of
+% them, together with the COMPLETE reference list, fit entirely within
+% this single page. Shrink, resize, or trim figures/tables and
+% shorten the reference list as needed to fit everything on page 2.
+% =====================================================================
+
+% --- Example figure  ---
+\begin{figure}[h!]
+  \centering
+  \includegraphics[width=0.75\textwidth]{example-image}
+  \caption{Example figure caption. Figures and tables on this page should
+  be referenced from the text on page 1.}
+  \label{fig:example}
+\end{figure}
+
+% --- Example table  ---
+\begin{table}[h!]
+  \centering
+  \begin{tabular}{lcc}
+    \hline
+    \textbf{Metric} & \textbf{Network A} & \textbf{Network B} \\
+    \hline
+    Nodes            & 1{,}204 & 3{,}871 \\
+    Edges            & 8{,}530 & 21{,}004 \\
+    Mean degree      & 14.2    & 10.9 \\
+    \hline
+  \end{tabular}
+  \caption{Example summary statistics table.}
+  \label{tab:example}
+\end{table}
+
+% --- Add further \begin{figure}...\end{figure} or \begin{table}...\end{table}
+% blocks here if needed.
+
+% --- References ---
+% Use any consistent citation style (numeric or author-date). BibTeX/biblatex
+% is recommended but plain \bibitem entries are also accepted.
+\bibliographystyle{unsrtnat}
+\begin{thebibliography}{9}
+
+\bibitem{barabasi1999emergence}
+A.-L.~Barab\'asi and R.~Albert.
+\newblock Emergence of scaling in random networks.
+\newblock \emph{Science}, 286(5439):509--512, 1999.
+
+\bibitem{fortunato2010community}
+S.~Fortunato.
+\newblock Community detection in graphs.
+\newblock \emph{Physics Reports}, 486(3-5):75--174, 2010.
+
+\end{thebibliography}
+
+\end{document}

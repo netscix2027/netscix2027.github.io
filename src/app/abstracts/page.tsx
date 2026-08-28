@@ -9,13 +9,16 @@ export const metadata = { title: "Submission | NetSciX 2027" };
 
 const DEADLINES = milestonesFor("submission");
 
-// Abstract templates. The hrefs are deliberately blank until the files are
-// hosted; each entry renders as plain text with a "link coming soon" note
-// until its href is filled in. Same for SUBMISSION_SYSTEM below.
+// Abstract templates, served from public/templates. An entry with a blank
+// href renders as plain text with a "link coming soon" note instead of a
+// dead link — same for SUBMISSION_SYSTEM below.
 const TEMPLATES: { label: string; href: string }[] = [
-  { label: "LaTeX template (.tex)", href: "" },
-  { label: "Word template (.docx)", href: "" },
-  { label: "Example rendered PDF", href: "" },
+  { label: "LaTeX template (.tex)", href: "/templates/NetSciX2027_Abstract_Template.tex" },
+  {
+    label: "LaTeX template output (.pdf)",
+    href: "/templates/NetSciX2027_Abstract_Template_LaTeX_example.pdf",
+  },
+  { label: "Word template (.docx)", href: "/templates/NetSciX2027_Abstract_Template.docx" },
 ];
 
 const SUBMISSION_SYSTEM = { name: "EasyChair", href: "" };
