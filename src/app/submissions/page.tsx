@@ -1,8 +1,9 @@
 import PageHero from "@/components/PageHero";
 import SectionNav from "@/components/SectionNav";
 import Timeline from "@/components/Timeline";
-import ComingSoonPanel from "@/components/ComingSoonPanel";
+import { ArrowUpRight } from "lucide-react";
 import { Badge } from "@/components/ui/badge";
+import { buttonVariants } from "@/components/ui/button";
 import { AOE_NOTE, milestonesFor } from "@/lib/dates";
 
 export const metadata = { title: "Submission | NetSciX 2027" };
@@ -21,7 +22,10 @@ const TEMPLATES: { label: string; href: string }[] = [
   { label: "Word template (.docx)", href: "/templates/NetSciX2027_Abstract_Template.docx" },
 ];
 
-const SUBMISSION_SYSTEM = { name: "EasyChair", href: "" };
+const SUBMISSION_SYSTEM = {
+  name: "EasyChair",
+  href: "https://easychair.org/conferences/?conf=netscix2027",
+};
 
 export default function AbstractsPage() {
   return (
@@ -64,11 +68,21 @@ export default function AbstractsPage() {
             Submit your abstract
           </h2>
 
+          <p className="mt-4 text-gray-600 leading-relaxed">
+            Abstracts are submitted through {SUBMISSION_SYSTEM.name}. Please read the submission
+            guidelines below before uploading your PDF.
+          </p>
+
           <div className="mt-8">
-            <ComingSoonPanel>
-              Abstracts will be handled through an online submission system. The link will be
-              posted here once submissions open.
-            </ComingSoonPanel>
+            <a
+              href={SUBMISSION_SYSTEM.href}
+              target="_blank"
+              rel="noopener noreferrer"
+              className={buttonVariants({ variant: "brand", size: "lg" })}
+            >
+              Submit on {SUBMISSION_SYSTEM.name}
+              <ArrowUpRight className="h-4 w-4" aria-hidden="true" />
+            </a>
           </div>
         </div>
       </section>
