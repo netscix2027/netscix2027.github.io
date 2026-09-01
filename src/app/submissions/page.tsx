@@ -170,7 +170,7 @@ export default function AbstractsPage() {
           <h3 className="mt-12 font-serif text-xl font-bold text-ink">Use of AI writing tools</h3>
           <p className="mt-4 text-gray-600 leading-relaxed">
             The use of large language models is permitted for editorial support only (wording,
-            grammar, formatting). LLMs may not be used for autonomous content generation or to
+            grammar, formatting). LLMs should not be used for autonomous content generation or to
             fabricate results, figures, or citations. Authors remain fully responsible for the
             accuracy and originality of their submission and must confirm that any AI-assisted
             edits reflect their own original work and intent.
@@ -214,8 +214,15 @@ export default function AbstractsPage() {
           {/* Attendance */}
           <h3 className="mt-12 font-serif text-xl font-bold text-ink">Attendance requirement</h3>
           <p className="mt-4 text-gray-600 leading-relaxed">
-            At least one author of each accepted submission must register for the main
+            At least one author of each accepted submission is expected to register for the main
             conference.
+          </p>
+
+          {/* Travel support */}
+          <h3 className="mt-12 font-serif text-xl font-bold text-ink">Travel support</h3>
+          <p className="mt-4 text-gray-600 leading-relaxed">
+            Applications for travel support will be handled at a later stage, after the
+            scientific review of submissions.
           </p>
         </div>
       </section>
