@@ -6,15 +6,22 @@ export const metadata = { title: "Organizing Committee | NetSciX 2027" };
 type Member = { name: string; affiliation?: string; photo?: string };
 type Group = { title: string; members: Member[] };
 
-// Members within each group are ordered alphabetically by first name.
+// Members within each group are ordered alphabetically by first name — except
+// Conference Chairs, where the chair precedes the co-chair: the cards carry no
+// role label, so the order is the only thing that conveys it.
 const COMMITTEE: Group[] = [
   {
-    title: "Conference Chair",
+    title: "Conference Chairs",
     members: [
       {
         name: "Jie Sun",
         affiliation: "Huawei Hong Kong Research Center",
         photo: "/images/committee/jie-sun.jpg",
+      },
+      {
+        name: "Alec W. Kirkley",
+        affiliation: "The University of Hong Kong",
+        photo: "/images/committee/alec-kirkley.jpg",
       },
     ],
   },
@@ -23,13 +30,13 @@ const COMMITTEE: Group[] = [
     members: [
       {
         name: "Daniel Ebler",
-        affiliation: "Hong Kong University",
+        affiliation: "The University of Hong Kong",
         photo: "/images/committee/daniel-ebler.jpg",
       },
       {
-        name: "Jie Sun",
-        affiliation: "Huawei Hong Kong Research Center",
-        photo: "/images/committee/jie-sun.jpg",
+        name: "Qingpeng Zhang",
+        affiliation: "The University of Hong Kong",
+        photo: "/images/committee/qingpeng-zhang.jpg",
       },
       {
         name: "Renaud Lambiotte",
@@ -38,7 +45,7 @@ const COMMITTEE: Group[] = [
       },
       {
         name: "Shihui Feng",
-        affiliation: "Hong Kong University",
+        affiliation: "The University of Hong Kong",
         photo: "/images/committee/shihui-feng.jpg",
       },
     ],
@@ -192,12 +199,12 @@ export default function AboutPage() {
 //       },
 //       {
 //         name: "Daniel Ebler",
-//         affiliation: "Hong Kong University",
+//         affiliation: "The University of Hong Kong",
 //         photo: "/images/committee/daniel-ebler.jpg",
 //       },
 //       {
 //         name: "Shihui Feng",
-//         affiliation: "Hong Kong University",
+//         affiliation: "The University of Hong Kong",
 //         photo: "/images/committee/shihui-feng.jpg",
 //       },
 //     ],
