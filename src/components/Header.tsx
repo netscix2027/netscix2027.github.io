@@ -50,6 +50,9 @@ const NAV: Item[] = [
   {
     label: "More Info",
     href: "/more-info",
+    // One entry for now — the rest of the page is still a "coming soon"
+    // placeholder. Add a child here as each section lands.
+    children: [{ label: "Visa Support", href: "/more-info#visa" }],
   },
   // Program stays consolidated into /more-info until the schedule is finalized.
   //
