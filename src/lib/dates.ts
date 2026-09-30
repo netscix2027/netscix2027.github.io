@@ -14,7 +14,7 @@ export type Milestone = {
 
 export const MILESTONES: Milestone[] = [
   { date: "Sep 1, 2026", label: "Submissions open", tracks: ["submission"] },
-  { date: "Oct 1, 2026", label: "Submissions close", tracks: ["submission"] },
+  { date: "Oct 11, 2026", label: "Submissions close", tracks: ["submission"] },
   { date: "Oct 31, 2026", label: "Acceptance notification", tracks: ["submission"] },
   { date: "Nov 1, 2026", label: "Early registration opens", tracks: ["registration"] },
   { date: "Nov 15, 2026", label: "Travel support decision", tracks: ["registration"] },
