@@ -22,11 +22,11 @@ export const NEWS: NewsItem[] = [
   {
     iso: "2026-10-01",
     date: "Oct 1, 2026",
-    title: "Submission deadline extended to October 11, 2026",
+    title: "Submission deadline extended to October 10, 2026",
     body: (
       <>
         The deadline for submitting extended abstracts has been extended to{" "}
-        <strong className="text-ink">October 11, 2026</strong>. See the{" "}
+        <strong className="text-ink">October 10, 2026</strong>. See the{" "}
         <Link href="/submissions" className="font-medium text-brand hover:underline">
           submission page
         </Link>{" "}
