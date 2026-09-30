@@ -16,6 +16,7 @@ export const SITE_URL = "https://netscix2027.github.io";
 // page instead.
 export const SITEMAP_PATHS = [
   "/",
+  "/news/",
   "/key-dates/",
   "/speakers/",
   "/submissions/",

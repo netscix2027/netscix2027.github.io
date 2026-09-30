@@ -21,6 +21,7 @@ export default function Footer() {
 
       <div className="mx-auto max-w-6xl px-6 py-14 flex flex-col gap-12 md:flex-row md:justify-around md:items-start">
         <FooterCol title="EVENT">
+          <FooterLink href="/news">News</FooterLink>
           <FooterLink href="/key-dates">Key Dates</FooterLink>
           <FooterLink href="/speakers">Speakers</FooterLink>
           <FooterLink href="/submissions">Submission</FooterLink>

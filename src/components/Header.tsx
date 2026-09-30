@@ -11,6 +11,7 @@ type Item = { label: string; href: string; children?: Child[] };
 
 const NAV: Item[] = [
   { label: "Home", href: "/" },
+  { label: "News", href: "/news" },
   {
     label: "Key Dates",
     href: "/key-dates",
@@ -121,7 +122,7 @@ export default function Header() {
           />
         </Link>
 
-        {/* Seven top-level entries no longer fit next to the logo at md; the
+        {/* Eight top-level entries no longer fit next to the logo at md; the
             inline nav starts at lg and tablets fall back to the panel below. */}
         <nav className="hidden lg:flex items-stretch gap-1">
           {NAV.map((item) => (
