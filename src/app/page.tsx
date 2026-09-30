@@ -1,10 +1,15 @@
 import Image from "next/image";
 import Link from "next/link";
+import AnnouncementBar from "@/components/AnnouncementBar";
 import ContactForm from "@/components/ContactForm";
 
 export default function HomePage() {
   return (
     <>
+      {/* Latest announcement — above the hero so it is seen without scrolling.
+          Renders nothing when there is no news. */}
+      <AnnouncementBar />
+
       {/* Hero — Location & Date */}
       <section
         className="relative text-white h-[560px] md:h-[640px] flex items-center justify-center"

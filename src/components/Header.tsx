@@ -5,13 +5,15 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useEffect, useRef, useState } from "react";
 import { ChevronDown } from "lucide-react";
+import { HAS_NEWS } from "@/lib/news";
 
 type Child = { label: string; href: string };
-type Item = { label: string; href: string; children?: Child[] };
+/** `dot` marks the entry with a small brand dot — used to flag live news. */
+type Item = { label: string; href: string; children?: Child[]; dot?: boolean };
 
 const NAV: Item[] = [
   { label: "Home", href: "/" },
-  { label: "News", href: "/news" },
+  { label: "News", href: "/news", dot: HAS_NEWS },
   {
     label: "Key Dates",
     href: "/key-dates",
@@ -174,6 +176,7 @@ export default function Header() {
                   className="block py-1.5 text-sm font-semibold text-ink"
                 >
                   {item.label}
+                  {item.dot && <NewDot />}
                 </SmartLink>
                 {item.children && (
                   <ul className="mt-1 ml-3 border-l border-gray-200 pl-3 space-y-1">
@@ -232,6 +235,7 @@ function NavTrigger({
         }
       >
         {item.label}
+        {item.dot && <span className="sr-only">(new)</span>}
         {hasChildren && (
           <ChevronDown
             className={
@@ -241,6 +245,15 @@ function NavTrigger({
           />
         )}
       </SmartLink>
+
+      {/* Absolutely positioned so the dot costs no layout width — an inline one
+          widened the row enough to wrap the nav again at the lg breakpoint. */}
+      {item.dot && (
+        <span
+          aria-hidden="true"
+          className="pointer-events-none absolute right-1 top-1/2 -mt-2.5 h-1.5 w-1.5 rounded-full bg-brand"
+        />
+      )}
 
       {hasChildren && (
         <div
@@ -271,6 +284,21 @@ function NavTrigger({
         </div>
       )}
     </div>
+  );
+}
+
+// Inline dot for the mobile panel, where there is room for it in the flow.
+// The desktop nav positions its own dot absolutely instead (see NavTrigger).
+// The visible mark is decorative, so screen readers get the word instead.
+function NewDot() {
+  return (
+    <>
+      <span
+        className="ml-1.5 inline-block h-1.5 w-1.5 shrink-0 rounded-full bg-brand align-middle"
+        aria-hidden="true"
+      />
+      <span className="sr-only">(new)</span>
+    </>
   );
 }
 

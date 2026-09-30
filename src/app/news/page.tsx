@@ -1,36 +1,7 @@
-import Link from "next/link";
 import PageHero from "@/components/PageHero";
+import { NEWS } from "@/lib/news";
 
 export const metadata = { title: "News | NetSciX 2027" };
-
-// `date` is what the page shows (same format as src/lib/dates.ts); `iso` is
-// the machine-readable value for the <time> element. Both are written by hand
-// so an announcement never shifts with the reader's time zone.
-type NewsItem = { iso: string; date: string; title: string; body: React.ReactNode };
-
-// Newest first — this is the order the page renders in.
-//
-// Each entry is a record of what was announced on its date, so leave published
-// items alone when the underlying details change later: add a new item instead.
-// That also means the dates quoted in an item's body are deliberately literal
-// rather than read from src/lib/dates.ts, which always holds the current values.
-const NEWS: NewsItem[] = [
-  {
-    iso: "2026-10-01",
-    date: "Oct 1, 2026",
-    title: "Submission deadline extended to October 11, 2026",
-    body: (
-      <>
-        The deadline for submitting extended abstracts has been extended to{" "}
-        <strong className="text-ink">October 11, 2026</strong>. See the{" "}
-        <Link href="/submissions" className="font-medium text-brand hover:underline">
-          submission page
-        </Link>{" "}
-        for guidelines and templates.
-      </>
-    ),
-  },
-];
 
 export default function NewsPage() {
   return (
