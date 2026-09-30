@@ -45,7 +45,10 @@ const NAV: Item[] = [
     ],
   },
   {
-    label: "Organizing Committee",
+    // Shortened from "Organizing Committee" — it was the widest label and made
+    // the inline nav wrap to two lines at the lg breakpoint. The page itself
+    // still carries the full name.
+    label: "Organizers",
     href: "/about",
   },
   {
