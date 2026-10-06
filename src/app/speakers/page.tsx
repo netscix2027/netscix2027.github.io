@@ -14,10 +14,10 @@ type Speaker = {
 // Ordered alphabetically by first name.
 const KEYNOTES: Speaker[] = [
   {
-    name: "Christopher Moore",
+    name: "Cristopher Moore",
     affiliation: "Santa Fe Institute, USA",
     website: "https://sites.santafe.edu/~moore/",
-    photo: "/images/speakers/christopher-moore.jpg",
+    photo: "/images/speakers/cristopher-moore.jpg",
   },
   {
     name: "Guanrong Chen",
