@@ -1,11 +1,11 @@
 // Single source of truth for conference deadlines.
 // Source: organizers' "website_updates_august07" brief.
-// The submission/registration pages render subsets of this list via `track`;
-// /key-dates groups the whole list via `group`.
+// Every page selects via `group`: /key-dates renders all of them, while
+// /submissions and /registration each render the two groups they own.
 
 export type Track = "submission" | "registration";
 
-/** Blocks on /key-dates. "conference" is the event itself, rendered apart. */
+/** The card blocks the pages group by. "conference" is the event itself, rendered apart. */
 export type Group =
   | "submission"
   | "notification"
@@ -85,8 +85,9 @@ export const MILESTONES: Milestone[] = [
   },
 ];
 
-// Order and titles of the blocks on /key-dates. The conference is absent on
-// purpose: the page renders it as its own banner below the blocks.
+// Order and titles of the blocks. /key-dates renders all four and the
+// conference is absent on purpose: that page renders it as its own banner
+// below the blocks. /submissions and /registration filter this list.
 export const GROUPS: { id: Group; title: string }[] = [
   { id: "submission", title: "Submissions" },
   { id: "notification", title: "Acceptance" },
@@ -94,6 +95,7 @@ export const GROUPS: { id: Group; title: string }[] = [
   { id: "travel", title: "Travel support" },
 ];
 
+/** Currently unused — kept with `Track`/`tracks` in case per-track lists return. */
 export function milestonesFor(track: Track): Milestone[] {
   return MILESTONES.filter((m) => m.tracks.includes(track));
 }

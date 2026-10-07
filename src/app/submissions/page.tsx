@@ -1,14 +1,19 @@
 import PageHero from "@/components/PageHero";
 import SectionNav from "@/components/SectionNav";
-import Timeline from "@/components/Timeline";
+import MilestoneCard from "@/components/MilestoneCard";
 import { ArrowUpRight } from "lucide-react";
 import { Badge } from "@/components/ui/badge";
 import { buttonVariants } from "@/components/ui/button";
-import { AOE_NOTE, milestonesFor } from "@/lib/dates";
+import { AOE_NOTE, GROUPS, milestonesInGroup } from "@/lib/dates";
 
 export const metadata = { title: "Submission | NetSciX 2027" };
 
-const DEADLINES = milestonesFor("submission");
+// The two /key-dates groups that concern authors. The conference dates
+// themselves are left out on purpose: this section is about what an author has
+// to do and by when, and /key-dates already carries the event itself.
+const DEADLINE_GROUPS = GROUPS.filter(
+  (g) => g.id === "submission" || g.id === "notification",
+);
 
 // Abstract templates, served from public/templates. An entry with a blank
 // href renders as plain text with a "link coming soon" note instead of a
@@ -51,8 +56,14 @@ export default function AbstractsPage() {
           <h2 className="mt-3 font-serif text-3xl md:text-4xl font-bold text-ink">Deadlines</h2>
           <p className="mt-3 text-gray-600">{AOE_NOTE}</p>
 
-          <div className="mt-10">
-            <Timeline items={DEADLINES} accent="amber" />
+          <div className="mt-10 grid gap-6 md:grid-cols-2 items-start">
+            {DEADLINE_GROUPS.map((g) => (
+              <MilestoneCard
+                key={g.id}
+                title={g.title}
+                milestones={milestonesInGroup(g.id)}
+              />
+            ))}
           </div>
         </div>
       </section>

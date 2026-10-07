@@ -1,9 +1,9 @@
 import PageHero from "@/components/PageHero";
 import SectionNav from "@/components/SectionNav";
-import Timeline from "@/components/Timeline";
+import MilestoneCard from "@/components/MilestoneCard";
 import ComingSoonPanel from "@/components/ComingSoonPanel";
 import { Badge } from "@/components/ui/badge";
-import { AOE_NOTE, milestonesFor } from "@/lib/dates";
+import { AOE_NOTE, GROUPS, milestonesInGroup } from "@/lib/dates";
 import {
   CATEGORIES,
   CATEGORY_LABEL,
@@ -18,7 +18,12 @@ import { COUNTRY_TIERS, WESP_TABLE_E_URL } from "@/lib/country-tiers";
 
 export const metadata = { title: "Registration | NetSciX 2027" };
 
-const DEADLINES = milestonesFor("registration");
+// The two /key-dates groups that concern attendees. The conference dates
+// themselves are left out on purpose: this section is about what an attendee
+// has to do and by when, and /key-dates already carries the event itself.
+const DEADLINE_GROUPS = GROUPS.filter(
+  (g) => g.id === "registration" || g.id === "travel",
+);
 
 export default function RegistrationPage() {
   return (
@@ -46,8 +51,14 @@ export default function RegistrationPage() {
           <h2 className="mt-3 font-serif text-3xl md:text-4xl font-bold text-ink">Deadlines</h2>
           <p className="mt-3 text-gray-600">{AOE_NOTE}</p>
 
-          <div className="mt-10">
-            <Timeline items={DEADLINES} accent="amber" />
+          <div className="mt-10 grid gap-6 md:grid-cols-2 items-start">
+            {DEADLINE_GROUPS.map((g) => (
+              <MilestoneCard
+                key={g.id}
+                title={g.title}
+                milestones={milestonesInGroup(g.id)}
+              />
+            ))}
           </div>
         </div>
       </section>

@@ -1,6 +1,8 @@
 import type { Milestone } from "@/lib/dates";
 
-// Vertical deadline timeline shared by /key-dates, /submissions and /registration.
+// Vertical deadline timeline. Currently unused: /key-dates, /submissions and
+// /registration all render their dates as MilestoneCard groups instead. Kept
+// for the case where a single chronological rail is wanted again.
 export default function Timeline({
   items,
   accent = "ink",
