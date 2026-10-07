@@ -8,6 +8,7 @@ export type Track = "submission" | "registration";
 /** The card blocks the pages group by. "conference" is the event itself, rendered apart. */
 export type Group =
   | "submission"
+  | "workshop"
   | "notification"
   | "registration"
   | "travel"
@@ -44,6 +45,12 @@ export const MILESTONES: Milestone[] = [
     label: "Submissions close",
     tracks: ["submission"],
     group: "submission",
+  },
+  {
+    date: "Oct 31, 2026",
+    label: "Proposal submissions close",
+    tracks: ["submission"],
+    group: "workshop",
   },
   {
     date: "Oct 31, 2026",
@@ -85,13 +92,17 @@ export const MILESTONES: Milestone[] = [
   },
 ];
 
-// Order and titles of the blocks. /key-dates renders all four and the
+// Order and titles of the blocks. /key-dates renders all of them and the
 // conference is absent on purpose: that page renders it as its own banner
 // below the blocks. /submissions and /registration filter this list.
+//
+// This order is also the layout: /key-dates runs three across at lg, so the
+// first three below share a row and the last two sit under them.
 export const GROUPS: { id: Group; title: string }[] = [
   { id: "submission", title: "Submissions" },
   { id: "notification", title: "Acceptance" },
   { id: "registration", title: "Registration" },
+  { id: "workshop", title: "Themed Workshop Proposals" },
   { id: "travel", title: "Travel support" },
 ];
 

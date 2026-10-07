@@ -8,11 +8,11 @@ import { AOE_NOTE, GROUPS, milestonesInGroup } from "@/lib/dates";
 
 export const metadata = { title: "Submission | NetSciX 2027" };
 
-// The two /key-dates groups that concern authors. The conference dates
-// themselves are left out on purpose: this section is about what an author has
-// to do and by when, and /key-dates already carries the event itself.
+// The /key-dates groups that concern authors and workshop organizers. The
+// conference dates themselves are left out on purpose: this section is about
+// what a submitter has to do and by when, and /key-dates carries the event.
 const DEADLINE_GROUPS = GROUPS.filter(
-  (g) => g.id === "submission" || g.id === "notification",
+  (g) => g.id === "submission" || g.id === "workshop" || g.id === "notification",
 );
 
 // Abstract templates, served from public/templates. An entry with a blank
@@ -32,6 +32,10 @@ const SUBMISSION_SYSTEM = {
   href: "https://easychair.org/conferences/?conf=netscix2027",
 };
 
+// Workshop proposals come to the organizers by email: EasyChair above is set
+// up for the abstract track only.
+const WORKSHOP_PROPOSAL_EMAIL = "netscix2027conf@gmail.com";
+
 export default function AbstractsPage() {
   return (
     <>
@@ -46,6 +50,7 @@ export default function AbstractsPage() {
           { id: "deadlines", label: "Deadlines" },
           { id: "submit", label: "Submit" },
           { id: "guidelines", label: "Guidelines" },
+          { id: "workshops", label: "Workshop Proposals" },
         ]}
       />
 
@@ -56,7 +61,8 @@ export default function AbstractsPage() {
           <h2 className="mt-3 font-serif text-3xl md:text-4xl font-bold text-ink">Deadlines</h2>
           <p className="mt-3 text-gray-600">{AOE_NOTE}</p>
 
-          <div className="mt-10 grid gap-6 md:grid-cols-2 items-start">
+          {/* Three blocks across from md, so they sit on one row. */}
+          <div className="mt-10 grid gap-6 md:grid-cols-3 items-start">
             {DEADLINE_GROUPS.map((g) => (
               <MilestoneCard
                 key={g.id}
@@ -234,6 +240,103 @@ export default function AbstractsPage() {
           <p className="mt-4 text-gray-600 leading-relaxed">
             Applications for travel support will be handled at a later stage, after the
             scientific review of submissions.
+          </p>
+        </div>
+      </section>
+
+      {/* Themed workshop proposals — a separate call from the abstract track
+          above, so it gets its own section rather than a Guidelines heading. */}
+      <section id="workshops" className="bg-gray-50 border-t border-gray-200">
+        <div className="mx-auto max-w-3xl px-6 py-16">
+          <Badge variant="violet">Get involved</Badge>
+          <h2 className="mt-3 font-serif text-3xl md:text-4xl font-bold text-ink">
+            Call for Themed Workshop Proposals
+          </h2>
+
+          <p className="mt-4 text-gray-600 leading-relaxed">
+            NetSciX 2027 invites proposals for{" "}
+            <strong className="text-ink">interactive, themed workshops</strong> for community
+            building, sharing perspectives, training, and generating ideas on specific and
+            emerging topics in network science. We recommend a duration of no more than 3 hours.
+          </p>
+
+          {/* Formats */}
+          <h3 className="mt-12 font-serif text-xl font-bold text-ink">Workshop formats</h3>
+          <p className="mt-4 text-gray-600 leading-relaxed">
+            We welcome proposals in a range of workshop formats that get people engaging with
+            each other across the network science community. Workshops may focus on skill
+            development, knowledge exchange, collaborative problem solving, community building,
+            or creating shared research resources. Organizers should choose the format that best
+            fits their goals. Successful proposals should clearly describe what participants will
+            do, how much they are expected to participate, and what the workshop aims to
+            achieve. Example formats include:
+          </p>
+          <ul className="mt-4 space-y-3 text-sm text-gray-700">
+            <li>
+              <span className="font-medium text-ink">Hands-on Tutorials,</span> which teach a
+              network analysis method from start to finish. They go from a research question and
+              raw data, through modeling and inference, to interpreting the results, so that
+              participants can apply the method to their own data.
+            </li>
+            <li>
+              <span className="font-medium text-ink">Symposia,</span> with position papers,
+              invited talks and moderated discussion on a focused research area.
+            </li>
+            <li>
+              <span className="font-medium text-ink">Guided Exploration Workshops,</span> which
+              use structured activities to examine emerging questions, build shared
+              understanding, or identify future research directions.
+            </li>
+            <li>
+              <span className="font-medium text-ink">Collaborative Working Groups,</span> where
+              participants work together to produce community resources such as white papers,
+              benchmark datasets, evaluation protocols, software, or research roadmaps.
+            </li>
+            <li>
+              <span className="font-medium text-ink">Innovation Labs or Design Jams,</span> which
+              support collaborative ideation and rapid prototyping of new concepts, methods or
+              tools.
+            </li>
+            <li>
+              <span className="font-medium text-ink">Other creative and interactive formats</span>{" "}
+              that clearly state their objectives, what participants will experience, and the
+              expected outcomes.
+            </li>
+          </ul>
+
+          {/* Proposal requirements */}
+          <h3 className="mt-12 font-serif text-xl font-bold text-ink">
+            Proposal requirements
+          </h3>
+          <p className="mt-4 text-gray-600 leading-relaxed">
+            A workshop proposal is at most three pages and covers:
+          </p>
+          <ul className="mt-4 space-y-3 text-sm text-gray-700">
+            <li>Title, organizers (with affiliations and short bios) and a contact person</li>
+            <li>Abstract (max 250 words)</li>
+            <li>Objectives and expected outcomes</li>
+            <li>
+              Planned activities and a timed session outline, including the expected level of
+              participant involvement
+            </li>
+            <li>Target audience, and any prerequisites or technical requirements</li>
+            <li>
+              Plans for recruiting participants and sharing outcomes (e.g. website, open
+              materials, follow-ups)
+            </li>
+          </ul>
+
+          {/* Proposal submission */}
+          <h3 className="mt-12 font-serif text-xl font-bold text-ink">Proposal submission</h3>
+          <p className="mt-4 text-gray-600 leading-relaxed">
+            Please email your proposal to{" "}
+            <a
+              href={`mailto:${WORKSHOP_PROPOSAL_EMAIL}`}
+              className="font-medium text-brand hover:underline"
+            >
+              {WORKSHOP_PROPOSAL_EMAIL}
+            </a>
+            .
           </p>
         </div>
       </section>

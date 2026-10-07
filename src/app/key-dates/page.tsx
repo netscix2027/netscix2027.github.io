@@ -20,8 +20,9 @@ export default function KeyDatesPage() {
       <section className="bg-white">
         <div className="mx-auto max-w-6xl px-6 py-16">
           {/* No section heading: the hero already says "Key Dates". */}
-          {/* Four blocks across at lg so none is left stranded on its own row. */}
-          <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-4 items-start">
+          {/* Three across at lg: with five blocks that splits 3 + 2, where four
+              across would strand the fifth alone on its own row. */}
+          <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3 items-start">
             {GROUPS.map((g) => (
               <MilestoneCard
                 key={g.id}
