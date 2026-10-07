@@ -12,3 +12,5 @@ data/
 *.docx
 # ...except the abstract templates, which the site actually serves
 !public/templates/*.docx
+# Local dev-server helper — personal tooling, not site source
+dev.sh
