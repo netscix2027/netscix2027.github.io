@@ -24,9 +24,11 @@ export default function Timeline({
             }
           />
           <div className={`text-sm font-mono uppercase tracking-wide ${dateColor}`}>
+            {m.previousDate && <del className="mr-2 text-muted">{m.previousDate}</del>}
             {m.date}
           </div>
           <div className="mt-1 font-serif text-lg text-ink">{m.label}</div>
+          {m.note && <p className="mt-1 text-sm text-muted">{m.note}</p>}
         </li>
       ))}
     </ol>
