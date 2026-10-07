@@ -20,6 +20,23 @@ export type NewsItem = { iso: string; date: string; title: string; body: React.R
 // rather than read from src/lib/dates.ts, which always holds the current values.
 export const NEWS: NewsItem[] = [
   {
+    iso: "2026-10-07",
+    date: "Oct 7, 2026",
+    title: "Submission deadline extended to October 31, 2026",
+    body: (
+      <>
+        The deadline for submitting extended abstracts has been extended to{" "}
+        <strong className="text-ink">October 31, 2026</strong>. Acceptance notifications will be
+        sent in two waves: submissions received up to October 10 will be notified on October 31,
+        and those received afterwards on November 15. See the{" "}
+        <Link href="/submissions" className="font-medium text-brand hover:underline">
+          submission page
+        </Link>{" "}
+        for guidelines and templates.
+      </>
+    ),
+  },
+  {
     iso: "2026-10-01",
     date: "Oct 1, 2026",
     title: "Submission deadline extended to October 10, 2026",
