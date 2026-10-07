@@ -6,7 +6,12 @@
 export type Track = "submission" | "registration";
 
 /** Blocks on /key-dates. "conference" is the event itself, rendered apart. */
-export type Group = "submission" | "registration" | "travel" | "conference";
+export type Group =
+  | "submission"
+  | "notification"
+  | "registration"
+  | "travel"
+  | "conference";
 
 export type Milestone = {
   date: string;
@@ -45,7 +50,7 @@ export const MILESTONES: Milestone[] = [
     label: "First wave acceptance notification",
     note: "Covers submissions received up to Oct 10, 2026.",
     tracks: ["submission"],
-    group: "submission",
+    group: "notification",
   },
   {
     date: "Nov 1, 2026",
@@ -57,7 +62,7 @@ export const MILESTONES: Milestone[] = [
     date: "Nov 15, 2026",
     label: "Second wave acceptance notification",
     tracks: ["submission"],
-    group: "submission",
+    group: "notification",
   },
   {
     date: "Nov 15, 2026",
@@ -84,6 +89,7 @@ export const MILESTONES: Milestone[] = [
 // purpose: the page renders it as its own banner below the blocks.
 export const GROUPS: { id: Group; title: string }[] = [
   { id: "submission", title: "Submissions" },
+  { id: "notification", title: "Acceptance" },
   { id: "registration", title: "Registration" },
   { id: "travel", title: "Travel support" },
 ];

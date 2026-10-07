@@ -23,9 +23,9 @@ export default function KeyDatesPage() {
           most readers come looking for one group and ignore the rest. */}
       <section className="bg-white">
         <div className="mx-auto max-w-6xl px-6 py-16">
-          <h2 className="font-serif text-3xl font-bold text-ink">Important Dates</h2>
-
-          <div className="mt-10 grid gap-6 md:grid-cols-2 lg:grid-cols-3 items-start">
+          {/* No section heading: the hero already says "Key Dates". */}
+          {/* Four blocks across at lg so none is left stranded on its own row. */}
+          <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-4 items-start">
             {GROUPS.map((g) => (
               <article
                 key={g.id}
@@ -75,10 +75,12 @@ export default function KeyDatesPage() {
 function DateValue({ milestone }: { milestone: Milestone }) {
   if (!milestone.previousDate) return <>{milestone.date}</>;
 
+  // Each date is kept whole: in a narrow card the pair wraps between them
+  // rather than splitting a date across lines.
   return (
     <>
-      <del className="mr-2 text-muted">{milestone.previousDate}</del>
-      {milestone.date}
+      <del className="mr-2 whitespace-nowrap text-muted">{milestone.previousDate}</del>
+      <span className="whitespace-nowrap">{milestone.date}</span>
       <span className="sr-only"> (extended)</span>
     </>
   );
