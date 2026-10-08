@@ -20,6 +20,26 @@ export type NewsItem = { iso: string; date: string; title: string; body: React.R
 // rather than read from src/lib/dates.ts, which always holds the current values.
 export const NEWS: NewsItem[] = [
   {
+    iso: "2026-10-08",
+    date: "Oct 8, 2026",
+    title: "Call for themed workshop proposals is open",
+    body: (
+      <>
+        NetSciX 2027 invites proposals for interactive, themed workshops — hands-on tutorials,
+        symposia, guided explorations, collaborative working groups, and other formats that get
+        the community engaging with each other. Proposals run to at most three pages and close{" "}
+        <strong className="text-ink">October 31, 2026</strong>. See the{" "}
+        <Link
+          href="/submissions#workshops"
+          className="font-medium text-brand hover:underline"
+        >
+          call for proposals
+        </Link>{" "}
+        for the formats we welcome, what a proposal should contain, and where to send it.
+      </>
+    ),
+  },
+  {
     iso: "2026-10-07",
     date: "Oct 7, 2026",
     title: "Submission deadline extended to October 31, 2026",
