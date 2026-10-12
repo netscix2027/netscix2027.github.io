@@ -277,7 +277,7 @@ export default function AboutPage() {
               {/* Getting here */}
               <div className="rounded-lg border border-gray-200 bg-white p-5 shadow-sm">
                 <h3 className="font-serif text-lg font-bold text-ink mb-3">Getting Here</h3>
-                <ul className="space-y-3 text-sm text-gray-700">
+                <ul className="hyphen-list space-y-3 text-sm text-gray-700">
                   <li>
                     <span className="font-medium text-ink">By MTR.</span> Take the Tsuen Wan Line
                     to Tsim Sha Tsui Station. Use Exit E and walk south on Nathan Road for ~2

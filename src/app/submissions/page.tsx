@@ -119,7 +119,7 @@ export default function AbstractsPage() {
             Submissions take the form of a <strong className="text-ink">two-page extended
             abstract</strong>:
           </p>
-          <ul className="mt-4 space-y-3 text-sm text-gray-700">
+          <ul className="hyphen-list mt-4 space-y-3 text-sm text-gray-700">
             <li>
               <span className="font-medium text-ink">Page 1.</span> Title, authors and
               affiliations, keywords, and the abstract body.
@@ -136,7 +136,7 @@ export default function AbstractsPage() {
           </p>
           <div className="mt-4 rounded-lg border border-gray-200 bg-white p-5 shadow-sm">
             <h4 className="text-sm font-semibold uppercase tracking-wide text-ink">Templates</h4>
-            <ul className="mt-3 space-y-2 text-sm">
+            <ul className="hyphen-list mt-3 space-y-2 text-sm">
               {TEMPLATES.map((t) => (
                 <li key={t.label}>
                   {t.href ? (
@@ -162,7 +162,7 @@ export default function AbstractsPage() {
 
           {/* Page layout */}
           <h3 className="mt-12 font-serif text-xl font-bold text-ink">Page layout</h3>
-          <ul className="mt-4 space-y-3 text-sm text-gray-700">
+          <ul className="hyphen-list mt-4 space-y-3 text-sm text-gray-700">
             <li>
               <span className="font-medium text-ink">Paper size.</span> A4 (Letter is also
               accepted; do not mix sizes within the same submission).
@@ -265,7 +265,7 @@ export default function AbstractsPage() {
             do, how much they are expected to participate, and what the workshop aims to
             achieve. Example formats include:
           </p>
-          <ul className="mt-4 space-y-3 text-sm text-gray-700">
+          <ul className="hyphen-list mt-4 space-y-3 text-sm text-gray-700">
             <li>
               <span className="font-medium text-ink">Hands-on Tutorials,</span> which teach a
               network analysis method from start to finish. They go from a research question and
@@ -305,7 +305,7 @@ export default function AbstractsPage() {
           <p className="mt-4 text-gray-600 leading-relaxed">
             A workshop proposal is at most three pages and covers:
           </p>
-          <ul className="mt-4 space-y-3 text-sm text-gray-700">
+          <ul className="hyphen-list mt-4 space-y-3 text-sm text-gray-700">
             <li>Title, organizers (with affiliations and short bios) and a contact person</li>
             <li>Abstract (max 250 words)</li>
             <li>Objectives and expected outcomes</li>
@@ -359,7 +359,7 @@ export default function AbstractsPage() {
             </a>{" "}
             with subject line &ldquo;Travel support application&rdquo;, containing:
           </p>
-          <ul className="mt-4 space-y-3 text-sm text-gray-700">
+          <ul className="hyphen-list mt-4 space-y-3 text-sm text-gray-700">
             <li>Academic status (PhD student, postdoc, etc.)</li>
             <li>EasyChair Submission ID</li>
             <li>
