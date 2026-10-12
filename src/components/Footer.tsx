@@ -39,7 +39,11 @@ export default function Footer() {
           <FooterLink href="/about#committee">Organizing Committee</FooterLink>
           <FooterLink href="/about#venue">Venue</FooterLink>
           <FooterLink href="/about#accommodation">Accommodation</FooterLink>
-          <FooterLink href="/about#sponsors">Sponsors</FooterLink>
+          {/*
+            Restore with the Sponsors section on /about.
+
+            <FooterLink href="/about#sponsors">Sponsors</FooterLink>
+          */}
         </FooterCol>
 
         <FooterCol title="QUICK LINKS">

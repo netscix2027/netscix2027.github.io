@@ -49,15 +49,16 @@ const NAV: Item[] = [
   },
   {
     // "About" rather than the shorter-lived "Organizers": the page covers the
-    // venue, accommodation and sponsors again. It is also the narrower label,
-    // which is what keeps the inline nav on one line at the lg breakpoint.
+    // venue and accommodation again. It is also the narrower label, which is
+    // what keeps the inline nav on one line at the lg breakpoint.
     label: "About",
     href: "/about",
     children: [
       { label: "Organizing Committee", href: "/about#committee" },
       { label: "Venue", href: "/about#venue" },
       { label: "Accommodation", href: "/about#accommodation" },
-      { label: "Sponsors", href: "/about#sponsors" },
+      // Restore with the Sponsors section on /about.
+      // { label: "Sponsors", href: "/about#sponsors" },
     ],
   },
   {

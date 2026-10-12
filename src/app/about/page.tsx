@@ -99,51 +99,67 @@ const COMMITTEE: Group[] = [
   },
 ];
 
-const HOTELS = [
+type Hotel = { name: string; distance: string; note: string };
+
+const ACCOMMODATION_GROUPS: { title: string; intro: string; hotels: Hotel[] }[] = [
   {
-    name: "Sheraton Hong Kong Hotel & Towers (venue)",
-    distance: "On-site",
-    note: "The conference venue. Special block rates for attendees will be announced.",
+    title: "Discounted rates",
+    intro: "These hotels offer a discounted rate for conference attendees.",
+    hotels: [
+      {
+        name: "Sheraton Hong Kong Hotel & Towers (venue)",
+        distance: "On-site",
+        note: "The conference venue. Discounted rates for attendees will be provided. Details will be posted soon.",
+      },
+    ],
   },
   {
-    name: "The Peninsula Hong Kong",
-    distance: "~5 min walk",
-    note: "Iconic luxury hotel directly across Salisbury Road from the venue.",
-  },
-  {
-    name: "Hyatt Regency Tsim Sha Tsui",
-    distance: "~8 min walk",
-    note: "Modern mid-to-upscale hotel above K11 MUSEA on Hanoi Road.",
-  },
-  {
-    name: "Holiday Inn Golden Mile",
-    distance: "~5 min walk",
-    note: "Reliable mid-range option on Nathan Road, close to MTR Exit B2.",
-  },
-  {
-    name: "The Royal Pacific Hotel & Towers",
-    distance: "~12 min walk",
-    note: "Value option near China Hong Kong City and the Star Ferry pier.",
-  },
-  {
-    name: "BP International",
-    distance: "~10 min walk",
-    note: "Budget-friendly stay opposite Kowloon Park, with MTR access at Jordan.",
+    title: "Nearby recommendations",
+    intro:
+      "The organizers recommend these nearby hotels for their proximity to the venue; they do not offer a conference discount.",
+    hotels: [
+      {
+        name: "The Peninsula Hong Kong",
+        distance: "~5 min walk",
+        note: "Iconic luxury hotel directly across Salisbury Road from the venue.",
+      },
+      {
+        name: "Hyatt Regency Tsim Sha Tsui",
+        distance: "~8 min walk",
+        note: "Modern mid-to-upscale hotel above K11 MUSEA on Hanoi Road.",
+      },
+      {
+        name: "Holiday Inn Golden Mile",
+        distance: "~5 min walk",
+        note: "Reliable mid-range option on Nathan Road, close to MTR Exit B2.",
+      },
+      {
+        name: "The Royal Pacific Hotel & Towers",
+        distance: "~12 min walk",
+        note: "Value option near China Hong Kong City and the Star Ferry pier.",
+      },
+      {
+        name: "BP International",
+        distance: "~10 min walk",
+        note: "Budget-friendly stay opposite Kowloon Park, with MTR access at Jordan.",
+      },
+    ],
   },
 ];
 
-const SPONSOR_TIERS = [
-  { tier: "Diamond Partners", count: 3 },
-  { tier: "Gold Partners", count: 4 },
-  { tier: "Focus Session Partners", count: 4 },
-];
+// Restored together with the Sponsors section below.
+// const SPONSOR_TIERS = [
+//   { tier: "Diamond Partners", count: 3 },
+//   { tier: "Gold Partners", count: 4 },
+//   { tier: "Focus Session Partners", count: 4 },
+// ];
 
 export default function AboutPage() {
   return (
     <>
       <PageHero
         title="About NetSciX 2027"
-        subtitle="The people organizing the event, the venue, where to stay, and the partners that make it possible."
+        subtitle="The people organizing the event, the venue, and where to stay."
         bgImage="/images/general-info-bg.jpg"
       />
 
@@ -152,7 +168,7 @@ export default function AboutPage() {
           { id: "committee", label: "Organizing Committee" },
           { id: "venue", label: "Venue" },
           { id: "accommodation", label: "Accommodation" },
-          { id: "sponsors", label: "Sponsors" },
+          // { id: "sponsors", label: "Sponsors" },
         ]}
       />
 
@@ -320,31 +336,34 @@ export default function AboutPage() {
           <h2 className="mt-2 font-serif text-3xl md:text-4xl font-bold text-ink">
             Accommodation
           </h2>
-          <p className="mt-3 text-gray-600 max-w-2xl">
-            A short list of recommended hotels close to the venue. Block-booking details and
-            partner rates will be published as the event approaches.
-          </p>
 
-          <div className="mt-10 grid gap-5 md:grid-cols-2">
-            {HOTELS.map((h) => (
-              <article
-                key={h.name}
-                className="p-6 rounded-lg border border-gray-200 bg-white shadow-sm"
-              >
-                <h3 className="font-serif text-lg font-bold text-ink">{h.name}</h3>
-                <p className="mt-1 text-sm text-brand font-mono">{h.distance}</p>
-                <p className="mt-3 text-sm text-gray-600 leading-relaxed">{h.note}</p>
-              </article>
+          <div className="mt-10 space-y-12">
+            {ACCOMMODATION_GROUPS.map((group) => (
+              <div key={group.title}>
+                <h3 className="font-serif text-xl md:text-2xl font-bold text-ink">{group.title}</h3>
+                <p className="mt-3 text-gray-600">{group.intro}</p>
+                <div className="mt-6 grid gap-5 md:grid-cols-2">
+                  {group.hotels.map((h) => (
+                    <article
+                      key={h.name}
+                      className="p-6 rounded-lg border border-gray-200 bg-white shadow-sm"
+                    >
+                      <h4 className="font-serif text-lg font-bold text-ink">{h.name}</h4>
+                      <p className="mt-1 text-sm text-brand font-mono">{h.distance}</p>
+                      <p className="mt-3 text-sm text-gray-600 leading-relaxed">{h.note}</p>
+                    </article>
+                  ))}
+                </div>
+              </div>
             ))}
           </div>
-
-          <p className="mt-8 text-sm text-muted">
-            Demo list. Final recommendations and booking codes will be posted closer to the event.
-          </p>
         </div>
       </section>
 
-      {/* Sponsors */}
+      {/* Sponsors — commented out until the partner list is finalized.
+          Restore this block, SPONSOR_TIERS above, and the Sponsors entries in
+          SectionNav, Header, and Footer together. */}
+      {/*
       <section id="sponsors" className="bg-gray-50 border-t border-gray-200">
         <div className="mx-auto max-w-6xl px-6 py-16">
           <p className="text-xs uppercase tracking-[0.3em] text-brand">Support</p>
@@ -377,6 +396,7 @@ export default function AboutPage() {
           </p>
         </div>
       </section>
+      */}
     </>
   );
 }
