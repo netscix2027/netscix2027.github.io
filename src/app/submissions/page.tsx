@@ -370,11 +370,11 @@ export default function AbstractsPage() {
           </ul>
 
           <p className="mt-4 text-gray-600 leading-relaxed">
-            You do not need to wait for the acceptance notification to apply. An application will
-            be considered only after the abstract has been accepted.
+            You do not need to wait for the acceptance notification to apply.
           </p>
           <p className="mt-4 text-gray-600 leading-relaxed">
-            Travel support decisions will be communicated starting November 15, 2026.
+            Travel support decisions will be made on a rolling basis and communicated starting
+            November 15, 2026.
           </p>
         </div>
       </section>
