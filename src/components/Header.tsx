@@ -34,6 +34,7 @@ const NAV: Item[] = [
       { label: "Submit", href: "/submissions#submit" },
       { label: "Guidelines", href: "/submissions#guidelines" },
       { label: "Workshop Proposals", href: "/submissions#workshops" },
+      { label: "Travel Support", href: "/submissions#travel-support" },
     ],
   },
   {

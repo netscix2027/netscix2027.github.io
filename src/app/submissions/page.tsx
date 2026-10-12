@@ -32,9 +32,9 @@ const SUBMISSION_SYSTEM = {
   href: "https://easychair.org/conferences/?conf=netscix2027",
 };
 
-// Workshop proposals come to the organizers by email: EasyChair above is set
-// up for the abstract track only.
-const WORKSHOP_PROPOSAL_EMAIL = "netscix2027conf@gmail.com";
+// Workshop proposals and travel-support applications both come to the
+// organizers by email. EasyChair above is set up for the abstract track only.
+const ORGANIZERS_EMAIL = "netscix2027conf@gmail.com";
 
 export default function AbstractsPage() {
   return (
@@ -51,6 +51,7 @@ export default function AbstractsPage() {
           { id: "submit", label: "Submit" },
           { id: "guidelines", label: "Guidelines" },
           { id: "workshops", label: "Workshop Proposals" },
+          { id: "travel-support", label: "Travel Support" },
         ]}
       />
 
@@ -234,13 +235,6 @@ export default function AbstractsPage() {
             At least one author of each accepted submission is expected to register for the main
             conference.
           </p>
-
-          {/* Travel support */}
-          <h3 className="mt-12 font-serif text-xl font-bold text-ink">Travel support</h3>
-          <p className="mt-4 text-gray-600 leading-relaxed">
-            Applications for travel support will be handled at a later stage, after the
-            scientific review of submissions.
-          </p>
         </div>
       </section>
 
@@ -331,12 +325,56 @@ export default function AbstractsPage() {
           <p className="mt-4 text-gray-600 leading-relaxed">
             Please email your proposal to{" "}
             <a
-              href={`mailto:${WORKSHOP_PROPOSAL_EMAIL}`}
+              href={`mailto:${ORGANIZERS_EMAIL}`}
               className="font-medium text-brand hover:underline"
             >
-              {WORKSHOP_PROPOSAL_EMAIL}
+              {ORGANIZERS_EMAIL}
             </a>
             .
+          </p>
+        </div>
+      </section>
+
+      {/* Travel support */}
+      <section id="travel-support" className="bg-white border-t border-gray-200">
+        <div className="mx-auto max-w-3xl px-6 py-16">
+          <Badge variant="rose">Funding</Badge>
+          <h2 className="mt-3 font-serif text-3xl md:text-4xl font-bold text-ink">
+            Travel support
+          </h2>
+
+          <p className="mt-4 text-gray-600 leading-relaxed">
+            NetSciX 2027 is committed to providing travel support, subject to funding
+            availability, to students and early-career researchers. To be eligible, at least one
+            abstract needs to be submitted for consideration.
+          </p>
+
+          <p className="mt-4 text-gray-600 leading-relaxed">
+            To apply, send an email to{" "}
+            <a
+              href={`mailto:${ORGANIZERS_EMAIL}?subject=${encodeURIComponent("Travel support application")}`}
+              className="font-medium text-brand hover:underline"
+            >
+              {ORGANIZERS_EMAIL}
+            </a>{" "}
+            with subject line &ldquo;Travel support application&rdquo;, containing:
+          </p>
+          <ul className="mt-4 space-y-3 text-sm text-gray-700">
+            <li>Academic status (PhD student, postdoc, etc.)</li>
+            <li>EasyChair Submission ID</li>
+            <li>
+              Short paragraph (at most 200 words) indicating why you wish to attend the
+              conference, and why you need travel support.
+            </li>
+            <li>CV (PDF, optional)</li>
+          </ul>
+
+          <p className="mt-4 text-gray-600 leading-relaxed">
+            You do not need to wait for the acceptance notification to apply. An application will
+            be considered only after the abstract has been accepted.
+          </p>
+          <p className="mt-4 text-gray-600 leading-relaxed">
+            Travel support decisions will be communicated starting November 15, 2026.
           </p>
         </div>
       </section>
