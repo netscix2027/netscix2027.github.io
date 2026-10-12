@@ -20,6 +20,23 @@ export type NewsItem = { iso: string; date: string; title: string; body: React.R
 // rather than read from src/lib/dates.ts, which always holds the current values.
 export const NEWS: NewsItem[] = [
   {
+    iso: "2026-10-12",
+    date: "Oct 12, 2026",
+    title: "Travel support applications are open",
+    body: (
+      <>
+        Applications for travel support are now open. See{" "}
+        <Link
+          href="/submissions#travel-support"
+          className="font-medium text-brand hover:underline"
+        >
+          travel support
+        </Link>{" "}
+        for eligibility and how to apply.
+      </>
+    ),
+  },
+  {
     iso: "2026-10-08",
     date: "Oct 8, 2026",
     title: "Call for themed workshop proposals is open",

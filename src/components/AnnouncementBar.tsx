@@ -3,9 +3,9 @@ import { ArrowRight } from "lucide-react";
 import { NEWS } from "@/lib/news";
 
 // Slim strip above the hero announcing the most recent items from
-// src/lib/news. Capped at the newest two: the point is to deliver what is
+// src/lib/news. Capped at the newest three: the point is to deliver what is
 // current to people who may never scroll, not to summarise the News page.
-const VISIBLE_ITEMS = 2;
+const VISIBLE_ITEMS = 3;
 
 export default function AnnouncementBar() {
   const latest = NEWS.slice(0, VISIBLE_ITEMS);

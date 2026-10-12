@@ -73,7 +73,7 @@ export const MILESTONES: Milestone[] = [
   },
   {
     date: "Nov 15, 2026",
-    label: "Travel support decision",
+    label: "Travel support decision starts",
     tracks: ["registration"],
     group: "travel",
   },
