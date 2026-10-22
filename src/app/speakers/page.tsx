@@ -77,12 +77,13 @@ const INVITED: Speaker[] = [
     website: "https://research-repository.uwa.edu.au/en/persons/michael-small/",
     photo: "/images/speakers/michael-small.jpg",
   },
-  {
-    name: "Xavier Bresson",
-    affiliation: "National University of Singapore",
-    website: "https://graphdeeplearning.github.io/authors/xavier-bresson/",
-    photo: "/images/speakers/xavier-bresson.jpg",
-  },
+  // 2026-10-22: Xavier Bresson withdrew due to personal reasons
+  // {
+  //   name: "Xavier Bresson",
+  //   affiliation: "National University of Singapore",
+  //   website: "https://graphdeeplearning.github.io/authors/xavier-bresson/",
+  //   photo: "/images/speakers/xavier-bresson.jpg",
+  // },
 ];
 
 // Shown under both speaker grids, so readers don't infer a ranking from the order.
