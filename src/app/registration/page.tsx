@@ -1,8 +1,9 @@
 import PageHero from "@/components/PageHero";
 import SectionNav from "@/components/SectionNav";
 import MilestoneCard from "@/components/MilestoneCard";
-import ComingSoonPanel from "@/components/ComingSoonPanel";
+import { ArrowUpRight } from "lucide-react";
 import { Badge } from "@/components/ui/badge";
+import { buttonVariants } from "@/components/ui/button";
 import { AOE_NOTE, GROUPS, milestonesInGroup } from "@/lib/dates";
 import {
   CATEGORIES,
@@ -24,6 +25,10 @@ export const metadata = { title: "Registration | NetSciX 2027" };
 const DEADLINE_GROUPS = GROUPS.filter(
   (g) => g.id === "registration" || g.id === "travel",
 );
+
+// Registration is collected by HKU, not on this site.
+const REGISTRATION_URL =
+  "https://onlinepytsysprd.feo.hku.hk/event/112194?code=9551889a2457494ea42c476555e6299d";
 
 export default function RegistrationPage() {
   return (
@@ -221,11 +226,20 @@ export default function RegistrationPage() {
           <h2 className="mt-3 font-serif text-3xl md:text-4xl font-bold text-ink">Register</h2>
 
           <div className="mt-8">
-            <ComingSoonPanel>
-              Registration will be handled through an online registration system. The link will
-              be posted here once registration opens.
-            </ComingSoonPanel>
+            <a
+              href={REGISTRATION_URL}
+              target="_blank"
+              rel="noopener noreferrer"
+              className={buttonVariants({ variant: "brand", size: "lg" })}
+            >
+              Register
+              <ArrowUpRight className="h-4 w-4" aria-hidden="true" />
+            </a>
           </div>
+
+          <p className="mt-6 max-w-2xl text-gray-600 leading-relaxed">
+            Participants registering at a country-based discounted rate may be asked to show documentation proving their affiliation with an institution in the selected tier at the time of on site registration.
+          </p>
         </div>
       </section>
     </>
