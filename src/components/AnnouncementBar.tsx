@@ -2,10 +2,10 @@ import Link from "next/link";
 import { ArrowRight } from "lucide-react";
 import { NEWS } from "@/lib/news";
 
-// Slim strip above the hero announcing the most recent item from
-// src/lib/news. Only the newest one is shown: the point is to deliver a single
-// message to people who may never scroll, not to summarise the News page.
-const VISIBLE_ITEMS = 1;
+// Slim strip above the hero announcing the most recent items from
+// src/lib/news. Capped at the newest two: the point is to deliver what is
+// current to people who may never scroll, not to summarise the News page.
+const VISIBLE_ITEMS = 2;
 
 export default function AnnouncementBar() {
   const latest = NEWS.slice(0, VISIBLE_ITEMS);

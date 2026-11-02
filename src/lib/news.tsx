@@ -20,13 +20,27 @@ export type NewsItem = { iso: string; date: string; title: string; body: React.R
 // rather than read from src/lib/dates.ts, which always holds the current values.
 export const NEWS: NewsItem[] = [
   {
+    iso: "2026-11-02",
+    date: "Nov 2, 2026",
+    title: "First-wave notifications postponed to November 3, 2026",
+    body: (
+      <>
+        Due to the large number of submissions and the organizational challenges this imposes,
+        delivery of acceptance notifications for first-wave submissions has been postponed to{" "}
+        <strong className="text-ink">November 3, 2026</strong>.
+        <br />
+        The Organizing Committee would like to offer its apologies for the delay.
+      </>
+    ),
+  },
+  {
     iso: "2026-11-01",
     date: "Nov 1, 2026",
     title: "Registrations are now open",
     body: (
       <>
         Registration for NetSciX 2027 is now open. See{" "}
-        <Link href="/registration#register" className="font-medium text-brand hover:underline">
+            <Link href="/registration#register" className="font-medium text-brand hover:underline">
           registration
         </Link>{" "}
         for fees and how to sign up.
