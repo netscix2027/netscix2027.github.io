@@ -9,6 +9,9 @@ export const metadata = { title: "More Info | NetSciX 2027" };
 const IMMD_VISA_URL =
   "https://www.immd.gov.hk/eng/services/visas/visit-transit/visit-visa-entry-permit.html";
 
+// Invitation-letter requests come to the organizers by email.
+const INVITATION_LETTER_EMAIL = "netscix2027conf@gmail.com";
+
 export default function MoreInfoPage() {
   return (
     <>
@@ -43,10 +46,25 @@ export default function MoreInfoPage() {
 
           <h3 className="mt-12 font-serif text-xl font-bold text-ink">Invitation letters</h3>
           <p className="mt-4 text-gray-600 leading-relaxed">
-            Participants who need an official invitation letter in support of a visa application
-            can request one once their registration is confirmed. The request procedure will be
-            published here when registration opens.
+            Participants who require an invitation letter should send an email to{" "}
+            <a
+              href={`mailto:${INVITATION_LETTER_EMAIL}?subject=${encodeURIComponent("Invitation letter request")}`}
+              className="font-medium text-brand hover:underline"
+            >
+              {INVITATION_LETTER_EMAIL}
+            </a>{" "}
+            with subject line &ldquo;Invitation letter request&rdquo;, containing:
           </p>
+          <ul className="hyphen-list mt-4 space-y-3 text-sm text-gray-700">
+            <li>Full legal name</li>
+            <li>Nationality</li>
+            <li>Date of birth</li>
+            <li>Gender, as in the travel document</li>
+            <li>Travel document number</li>
+            <li>Affiliation</li>
+            <li>Email address</li>
+            <li>Intended arrival and departure dates</li>
+          </ul>
           <p className="mt-4 text-gray-600 leading-relaxed">
             An invitation letter is a supporting document only. It does not guarantee that a visa
             will be granted, and the organizers have no influence over the decisions of the
