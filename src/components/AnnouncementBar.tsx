@@ -2,20 +2,19 @@ import Link from "next/link";
 import { ArrowRight } from "lucide-react";
 import { NEWS } from "@/lib/news";
 
-// Slim strip above the hero announcing the most recent items from
-// src/lib/news. Capped at the newest two: the point is to deliver what is
-// current to people who may never scroll, not to summarise the News page.
-const VISIBLE_ITEMS = 2;
+// Slim strip above the hero. Which items appear is chosen on each entry in
+// src/lib/news (`announce`), not by taking the newest few, so the bar can
+// skip an item that sits between two it shows.
 
 export default function AnnouncementBar() {
-  const latest = NEWS.slice(0, VISIBLE_ITEMS);
-  if (latest.length === 0) return null;
+  const announced = NEWS.filter((item) => item.announce);
+  if (announced.length === 0) return null;
 
   return (
     // The rows, not this wrapper, carry the link: each one highlights and
     // navigates on its own, and its hover still spans the full width.
     <div className="border-y border-[#EADFD7] bg-[#FAF7F5]">
-      {latest.map((item, i) => (
+      {announced.map((item, i) => (
         <Link
           key={item.iso + item.title}
           href="/news"

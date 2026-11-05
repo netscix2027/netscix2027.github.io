@@ -1,24 +1,46 @@
 import Link from "next/link";
 
 // Single source of truth for announcements. The /news page renders the whole
-// list; the homepage announcement bar and the header's News dot read the top
-// of it, so adding an item here updates every surface at once.
+// list. The homepage bar shows only the entries marked `announce`, and the
+// header's News dot is on whenever the list is non-empty.
 //
 // This file is .tsx rather than .ts because item bodies carry markup.
 
 // `date` is what the page shows (same format as src/lib/dates.ts); `iso` is
 // the machine-readable value for the <time> element. Both are written by hand
 // so an announcement never shifts with the reader's time zone.
-export type NewsItem = { iso: string; date: string; title: string; body: React.ReactNode };
+// `announce` puts the item on the homepage bar. The bar is not "the newest
+// few": items are chosen one by one, so it can skip entries in between.
+export type NewsItem = {
+  iso: string;
+  date: string;
+  title: string;
+  body: React.ReactNode;
+  announce?: boolean;
+};
 
-// Newest first — this is the order the page renders in, and NEWS[0] is what
-// the homepage announces.
+// Newest first — this is the order the page renders in.
 //
 // Each entry is a record of what was announced on its date, so leave published
 // items alone when the underlying details change later: add a new item instead.
 // That also means the dates quoted in an item's body are deliberately literal
 // rather than read from src/lib/dates.ts, which always holds the current values.
 export const NEWS: NewsItem[] = [
+  {
+    iso: "2026-11-05",
+    date: "Nov 5, 2026",
+    title: "Invitation letter instructions are available",
+    announce: true,
+    body: (
+      <>
+        Instructions for requesting an invitation letter are now available. See{" "}
+        <Link href="/more-info#visa" className="font-medium text-brand hover:underline">
+          visa support
+        </Link>{" "}
+        for what to send.
+      </>
+    ),
+  },
   {
     iso: "2026-11-02",
     date: "Nov 2, 2026",
@@ -37,6 +59,7 @@ export const NEWS: NewsItem[] = [
     iso: "2026-11-01",
     date: "Nov 1, 2026",
     title: "Registrations are now open",
+    announce: true,
     body: (
       <>
         Registration for NetSciX 2027 is now open. See{" "}
