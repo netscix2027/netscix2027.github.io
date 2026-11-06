@@ -64,6 +64,7 @@ export default function MoreInfoPage() {
             <li>Affiliation</li>
             <li>Email address</li>
             <li>Intended arrival and departure dates</li>
+            <li>Submission ID</li>
           </ul>
           <p className="mt-4 text-gray-600 leading-relaxed">
             An invitation letter is a supporting document only. It does not guarantee that a visa
