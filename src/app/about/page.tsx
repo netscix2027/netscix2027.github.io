@@ -101,46 +101,56 @@ const COMMITTEE: Group[] = [
 
 type Hotel = { name: string; distance: string; note: string };
 
+// Sheraton venue copy — walk times and the discounted-rate card name the
+// unconfirmed venue. Restore the commented lines once the contract is signed.
 const ACCOMMODATION_GROUPS: { title: string; intro: string; hotels: Hotel[] }[] = [
   {
     title: "Discounted rates",
     intro: "These hotels offer a discounted rate for conference attendees.",
     hotels: [
-      {
-        name: "Sheraton Hong Kong Hotel & Towers (venue)",
-        distance: "On-site",
-        note: "The conference venue. Discounted rates for attendees will be provided. Details will be posted soon.",
-      },
+      // {
+      //   name: "Sheraton Hong Kong Hotel & Towers (venue)",
+      //   distance: "On-site",
+      //   note: "The conference venue. Discounted rates for attendees will be provided. Details will be posted soon.",
+      // },
     ],
   },
   {
     title: "Nearby recommendations",
+    // intro:
+    //   "The organizers recommend these nearby hotels for their proximity to the venue; they do not offer a conference discount.",
     intro:
-      "The organizers recommend these nearby hotels for their proximity to the venue; they do not offer a conference discount.",
+      "The organizers recommend these hotels in the Tsim Sha Tsui area. They do not offer a conference discount.",
     hotels: [
       {
         name: "The Peninsula Hong Kong",
-        distance: "~5 min walk",
-        note: "Iconic luxury hotel directly across Salisbury Road from the venue.",
+        // distance: "~5 min walk",
+        distance: "Tsim Sha Tsui",
+        // note: "Iconic luxury hotel directly across Salisbury Road from the venue.",
+        note: "Iconic luxury hotel in Tsim Sha Tsui.",
       },
       {
         name: "Hyatt Regency Tsim Sha Tsui",
-        distance: "~8 min walk",
+        // distance: "~8 min walk",
+        distance: "Tsim Sha Tsui",
         note: "Modern mid-to-upscale hotel above K11 MUSEA on Hanoi Road.",
       },
       {
         name: "Holiday Inn Golden Mile",
-        distance: "~5 min walk",
+        // distance: "~5 min walk",
+        distance: "Tsim Sha Tsui",
         note: "Reliable mid-range option on Nathan Road, close to MTR Exit B2.",
       },
       {
         name: "The Royal Pacific Hotel & Towers",
-        distance: "~12 min walk",
+        // distance: "~12 min walk",
+        distance: "Tsim Sha Tsui",
         note: "Value option near China Hong Kong City and the Star Ferry pier.",
       },
       {
         name: "BP International",
-        distance: "~10 min walk",
+        // distance: "~10 min walk",
+        distance: "Jordan",
         note: "Budget-friendly stay opposite Kowloon Park, with MTR access at Jordan.",
       },
     ],
@@ -227,6 +237,7 @@ export default function AboutPage() {
             <div>
               <p className="text-xs uppercase tracking-[0.3em] text-brand">Where</p>
               <h2 className="mt-2 font-serif text-3xl md:text-4xl font-bold text-ink">Venue</h2>
+              {/* Sheraton venue copy — restore this paragraph once the contract is signed.
               <p className="mt-4 text-gray-700 leading-relaxed">
                 NetSciX 2027 will be hosted at the{" "}
                 <a
@@ -240,17 +251,32 @@ export default function AboutPage() {
                 in Tsim Sha Tsui, Kowloon — a landmark hotel at the southern tip of Nathan Road,
                 steps from Victoria Harbour, the Star Ferry, and the MTR network.
               </p>
+              */}
+              <p className="mt-4 text-gray-700 leading-relaxed">
+                NetSciX 2027 will be held in a conference hall in the Tsim Sha Tsui area of Hong
+                Kong, in Kowloon, near Victoria Harbour and the Star Ferry.
+              </p>
 
               <dl className="mt-8 grid gap-3 text-sm">
-                <Row k="Address" v="20 Nathan Road, Tsim Sha Tsui, Kowloon, Hong Kong" />
-                <Row k="Nearest MTR" v="Tsim Sha Tsui Station (Tsuen Wan Line) — Exit E, ~2 min walk" />
-                <Row
+                {/* <Row k="Address" v="20 Nathan Road, Tsim Sha Tsui, Kowloon, Hong Kong" /> */}
+                <Row k="Address" v="Tsim Sha Tsui, Kowloon, Hong Kong" />
+                {/* <Row k="Nearest MTR" v="Tsim Sha Tsui Station (Tsuen Wan Line) — Exit E, ~2 min walk" /> */}
+                <Row k="Nearest MTR" v="Tsim Sha Tsui Station (Tsuen Wan Line)" />
+                {/* <Row
                   k="From HKIA"
                   v="≈ 35 min by taxi (HK$280–320) · Airport Express to Kowloon + 5 min taxi · A21 bus direct"
-                />
+                /> */}
                 <Row
+                  k="From HKIA"
+                  v="≈ 35 min by taxi to Tsim Sha Tsui (HK$280–320) · Airport Express to Kowloon, then a short taxi · A21 bus to Nathan Road"
+                />
+                {/* <Row
                   k="Star Ferry"
                   v="≈ 5 min walk to TST Pier — scenic crossing to Central in 10 min"
+                /> */}
+                <Row
+                  k="Star Ferry"
+                  v="TST Pier — scenic crossing to Central in 10 min"
                 />
                 <Row
                   k="Climate (Jan)"
@@ -264,10 +290,21 @@ export default function AboutPage() {
             </div>
 
             <div className="space-y-4 md:mt-20">
+              {/* Sheraton venue copy — restore this photo once the contract is signed.
               <div className="relative aspect-[16/10] w-full rounded-lg overflow-hidden border border-gray-200 shadow-sm">
                 <Image
                   src="/images/hotel-sheraton.jpeg"
                   alt="Sheraton Hong Kong Hotel & Towers — venue exterior"
+                  fill
+                  sizes="(min-width: 768px) 50vw, 100vw"
+                  className="object-cover"
+                />
+              </div>
+              */}
+              <div className="relative aspect-[16/10] w-full rounded-lg overflow-hidden border border-gray-200 shadow-sm">
+                <Image
+                  src="/images/victoria-harbour.jpg"
+                  alt="Victoria Harbour, Hong Kong"
                   fill
                   sizes="(min-width: 768px) 50vw, 100vw"
                   className="object-cover"
@@ -278,34 +315,36 @@ export default function AboutPage() {
               <div className="rounded-lg border border-gray-200 bg-white p-5 shadow-sm">
                 <h3 className="font-serif text-lg font-bold text-ink mb-3">Getting Here</h3>
                 <ul className="hyphen-list space-y-3 text-sm text-gray-700">
+                  {/* Sheraton venue copy: Use Exit E and walk south on Nathan Road for ~2 minutes. */}
                   <li>
                     <span className="font-medium text-ink">By MTR.</span> Take the Tsuen Wan Line
-                    to Tsim Sha Tsui Station. Use Exit E and walk south on Nathan Road for ~2
-                    minutes.
+                    to Tsim Sha Tsui Station.
                   </li>
+                  {/* Sheraton venue copy: then a 5-minute taxi or one MTR stop on the Tung Chung / Tsuen Wan lines via interchange. */}
                   <li>
                     <span className="font-medium text-ink">From HKIA — Airport Express.</span>{" "}
-                    AEL to Kowloon Station (~22 min), then a 5-minute taxi or one MTR stop on
-                    the Tung Chung / Tsuen Wan lines via interchange.
+                    AEL to Kowloon Station (~22 min), then a short taxi to Tsim Sha Tsui.
                   </li>
+                  {/* Sheraton venue copy: Cityflyer A21 stops directly in front of the hotel on Nathan Road (~60 min, HK$33). */}
                   <li>
                     <span className="font-medium text-ink">From HKIA — A21 Bus.</span> Cityflyer
-                    A21 stops directly in front of the hotel on Nathan Road (~60 min, HK$33).
+                    A21 serves Nathan Road in Tsim Sha Tsui (~60 min, HK$33).
                   </li>
                   <li>
                     <span className="font-medium text-ink">By taxi from HKIA.</span> ~35 minutes,
                     fare around HK$280–320 incl. tunnel toll.
                   </li>
+                  {/* Sheraton venue copy: A 5-minute walk to the TST Pier; the harbour crossing to Central / Wan Chai is HK$5. */}
                   <li>
-                    <span className="font-medium text-ink">Star Ferry.</span> A 5-minute walk to
-                    the TST Pier; the harbour crossing to Central / Wan Chai is HK$5.
+                    <span className="font-medium text-ink">Star Ferry.</span> The TST Pier is in
+                    the area; the harbour crossing to Central / Wan Chai is HK$5.
                   </li>
                 </ul>
               </div>
             </div>
           </div>
 
-          {/* Full-width map */}
+          {/* Sheraton venue copy — restore this map once the contract is signed.
           <div className="mt-12">
             <div className="h-[360px] md:h-[420px] w-full rounded-lg overflow-hidden border border-gray-200 shadow-sm">
               <iframe
@@ -326,6 +365,7 @@ export default function AboutPage() {
               <span aria-hidden>→</span>
             </a>
           </div>
+          */}
         </div>
       </section>
 
@@ -337,8 +377,10 @@ export default function AboutPage() {
             Accommodation
           </h2>
 
+          {/* Sheraton venue copy — an empty group stays hidden, so Discounted
+              rates reappears when its hotel entry above is restored. */}
           <div className="mt-10 space-y-12">
-            {ACCOMMODATION_GROUPS.map((group) => (
+            {ACCOMMODATION_GROUPS.filter((group) => group.hotels.length > 0).map((group) => (
               <div key={group.title}>
                 <h3 className="font-serif text-xl md:text-2xl font-bold text-ink">{group.title}</h3>
                 <p className="mt-3 text-gray-600">{group.intro}</p>
