@@ -253,7 +253,7 @@ export default function AboutPage() {
               </p>
               */}
               <p className="mt-4 text-gray-700 leading-relaxed">
-                NetSciX 2027 will be held in a conference hall in the Tsim Sha Tsui area of Hong
+                NetSciX 2027 will be held in the Tsim Sha Tsui area of Hong
                 Kong, in Kowloon, near Victoria Harbour and the Star Ferry.
               </p>
 
